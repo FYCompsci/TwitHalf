@@ -48,10 +48,11 @@ else{
 				else
 					return 0;
 			}
+      var username = "<?php echo $username; ?>";
 			function buildPosts(){
 				var arr = [];
 				for (var key in feedData){
-          if (feedData[key][1] == <?php echo $username; ?>){
+          if (feedData[key][1] == username){
   					arr.push(feedData[key]);
           }
 				}
