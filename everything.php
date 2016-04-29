@@ -32,9 +32,9 @@
 			var feedData = JSON.parse(httpGet("feed.php"));
 			function compareTimestamp(a,b) {
 				if (a[3] < b[3])
-					return -1;
-				else if (a[3] > b[3])
 					return 1;
+				else if (a[3] > b[3])
+					return -1;
 				else
 					return 0;
 			}
