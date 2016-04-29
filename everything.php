@@ -35,7 +35,24 @@
 				return xmlHttp.responseText;
 			}
 			var feedData = JSON.parse(httpGet("feed.php"));
+			function buildPosts(){
+				for (var key in feedData){
+					$("feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+feedData[key][1]+' <span class="text-muted">'+feedData[key][3]+'</span></h4><p class="card-text">'+feedData[key][2]+'</p></div></div>');
+					/*
+					<div class="card">
+						<div class="card-block">
+							<h4 class="card-title">@'+'feedData[key][1]'+' <span class="text-muted">'+'feedData[key][3]'+'</span></h4>
+							<p class="card-text">'feedData[key][2]'</p>
+						</div>
+					</div>
+
+					*/
+				}
+			}
 			console.log(feedData);
+			$( document ).ready(function() {
+			    buildPosts();
+			});
 		</script>
   </body>
 </html>
