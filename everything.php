@@ -45,7 +45,9 @@
 				}
 				arr.sort(compareTimestamp);
 				for (var i=0; i<=arr.length; i++) {
-					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+arr[i][3]+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
+					date = new Date(arr[i][3]*1000);
+					date = date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate(); 
+					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+date+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
 					Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
 					<div class="card">
