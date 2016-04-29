@@ -17,12 +17,7 @@
     <div class="container" style="padding-top:70px;">
 			<h1 class="display-2">Everything.</h1>
 			<h4>That's right, <b>everything.</b></h4>
-			<div class="card">
-				<div class="card-block">
-					<div id="feed-container">
-
-					</div>
-				</div>
+				<div id="feed-container">
 			</div>
     </div>
     <script src="js/jquery2.min.js"></script>
