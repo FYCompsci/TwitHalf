@@ -44,6 +44,7 @@
 					arr.push(key);
 				}
 				arr.sort(compare);
+				console.log(arr);
 				for (var i=0; i>=arr.length; i++) {
 					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+arr[i][3]+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
