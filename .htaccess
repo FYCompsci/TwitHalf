@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^user/([A-Za-z0-9-]+)/?$ user.php?userName=$1 [NC]
