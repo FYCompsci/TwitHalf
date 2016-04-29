@@ -31,18 +31,22 @@
 			}
 			var feedData = JSON.parse(httpGet("feed.php"));
 			function buildPosts(){
+				var arr = [];
 				for (var key in feedData){
-					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+feedData[key][1]+' <span class="text-muted">'+feedData[key][3]+'</span></h4><p class="card-text">'+feedData[key][2]+'</p></div></div>');
+					arr.push(key);
+				}
+				for (var i=arr.length-1; i>=0; i--) {
+					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+arr[i][3]+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
 					<div class="card">
 						<div class="card-block">
-							<h4 class="card-title">@'+'feedData[key][1]'+' <span class="text-muted">'+'feedData[key][3]'+'</span></h4>
-							<p class="card-text">'feedData[key][2]'</p>
+							<h4 class="card-title">@'+'arr[i][1]'+' <span class="text-muted">'+'arr[i][3]'+'</span></h4>
+							<p class="card-text">'arr[i][2]'</p>
 						</div>
 					</div>
 
 					*/
-				}
+			  }
 			}
 			console.log(feedData);
 			$( document ).ready(function() {
