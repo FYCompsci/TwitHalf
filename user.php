@@ -48,7 +48,7 @@ else{
 				else
 					return 0;
 			}
-      var username = "<?php echo $username; ?>";
+      var username = "<?php echo $page_username; ?>";
 			function buildPosts(){
 				var arr = [];
 				for (var key in feedData){
