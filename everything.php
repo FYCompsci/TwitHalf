@@ -41,7 +41,7 @@
 			function buildPosts(){
 				var arr = [];
 				for (var key in feedData){
-					arr.push(key);
+					arr.push(feedData[key]);
 				}
 				//arr.sort(compare);
 				console.log(arr);
