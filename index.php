@@ -13,8 +13,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="author" content="">
 		<title>The Buzz</title>
-		<link href="../../../resources/bootstrap-4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../../resources/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
     <style>
 			.full-nav > li > .dropdown-menu { min-width: 300px;}
     </style>
@@ -66,7 +66,7 @@
         </div>
       </div>
     </div>
-		<script src="../../../resources/jquery/jquery2.min.js"></script>
-		<script src="../../../resources/bootstrap-4.0.0-alpha.2/js/bootstrap.min.js"></script>
+		<script src="js/jquery2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
   </body>
 </html>
