@@ -30,12 +30,21 @@
 				return xmlHttp.responseText;
 			}
 			var feedData = JSON.parse(httpGet("feed.php"));
+			function compare(a,b) {
+				if (a[3] < b[3])
+					return -1;
+				else if (a[3] > b[3])
+					return 1;
+				else
+					return 0;
+			}
 			function buildPosts(){
 				var arr = [];
 				for (var key in feedData){
 					arr.push(key);
 				}
-				for (var i=arr.length-1; i>=0; i--) {
+				arr.sort(compare);
+				for (var i=0; i>=arr.length; i++) {
 					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+arr[i][3]+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
 					<div class="card">
