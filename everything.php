@@ -30,7 +30,7 @@
 				return xmlHttp.responseText;
 			}
 			var feedData = JSON.parse(httpGet("feed.php"));
-			function compare(a,b) {
+			function compareTimestamp(a,b) {
 				if (a[3] < b[3])
 					return -1;
 				else if (a[3] > b[3])
@@ -43,12 +43,12 @@
 				for (var key in feedData){
 					arr.push(feedData[key]);
 				}
-				//arr.sort(compare);
+				arr.sort(compareTimestamp);
 				console.log(arr);
 				console.log(arr[1]);
 				console.log(arr[2][2]);
-				for (var i = arr.length-1; i>=0; i--) {
-				//for (var i=0; i>=arr.length; i++) {
+				//for (var i = arr.length-1; i>=0; i--) {
+				for (var i=0; i>=arr.length; i++) {
 					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted">'+arr[i][3]+'</span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
 					<div class="card">
