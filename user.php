@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_GET['user'])){
-  $page_username = $_GET['user'];
+if (isset($_GET['username'])){
+  $page_username = $_GET['username'];
 }
 else{
   header("Location: index.php");
