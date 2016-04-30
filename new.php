@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="author" content="">
-		<title>Everything Feed | The Buzz</title>
+		<title>New | The Buzz</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <style>
@@ -16,8 +16,8 @@
 	<body>
 		<?php include_once ('navbar.php'); ?>
     <div class="container" style="padding-top:70px;">
-			<h1 class="display-2">Everything.</h1>
-			<h4>That's right, <b>everything.</b></h4>
+			<h1 class="display-2">What's new?</h1>
+			<h4>Find about what everybody is <b>buzzing about.</b></h4>
 				<div id="feed-container">
 			</div>
     </div>

@@ -12,7 +12,7 @@
           <span></span>
           <a class="dropdown-item"><span class="fa fa-trophy" style="color:gold;"></span> Top</a>
           <span></span>
-          <a class="dropdown-item" href="everything.php"><span class="fa fa-list" style="color:blue;"></span> Everything</a>
+          <a class="dropdown-item" href="new.php"><span class="fa fa-newspaper-o"></span> New</a>
         </div>
       </li>
       <?php if(empty($_SESSION['user'])){ ?>
