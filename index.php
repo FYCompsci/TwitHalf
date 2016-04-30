@@ -33,7 +33,7 @@
 							<a class="btn btn-secondary btn-block" href="about.php"><span class="fa fa-book"></span> Learn about The Buzz</a>
 						</div>
 						<div class="col-sm-6">
-							<a class="btn btn-secondary btn-block" href="https://github.com/malsf21/dmcs/tree/master/2015-2016/php/thebuzz"><span class="fa fa-github"></span> View on GitHub</a>
+							<a class="btn btn-secondary btn-block" href="https://github.com/FYCompsci/TwitHalf"><span class="fa fa-github"></span> View on GitHub</a>
 						</div>
 					</div>
         </div>
