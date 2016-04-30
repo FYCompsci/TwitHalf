@@ -39,7 +39,7 @@
                   </div>
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
-                    <button class="btn btn-block btn-danger">Clear</button>
+                    <button class="btn btn-block btn-danger" onclick="clearTextBox('#submitTextArea')">Clear</button>
                   </div>
                 </div>
               </div>
@@ -83,5 +83,10 @@
     </div>
     <script src="js/jquery2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+			function clearTextBox(container){
+				$(container).attr("value", "");
+			}
+		</script>
   </body>
 </html>
