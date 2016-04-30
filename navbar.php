@@ -32,9 +32,9 @@
       </div>
       <?php } else{ ?>
         <li class="nav-item dropdown pull-xs-right">
-          <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-inbox"></span> Hey <?php echo $_SESSION['user']['username']; ?>!</a>
+          <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-inbox"></span> Hey @<?php echo $_SESSION['user']['username']; ?>!</a>
           <div class="dropdown-menu" style="padding:5px;">
-            <a class="dropdown-item" href="user.php?username=<?php echo $page_username?>"><span class="fa fa-user"></span> View Your Profile</a>
+            <a class="dropdown-item" href="user.php?username=<?php echo $_SESSION['user']['username']; ?>"><span class="fa fa-user"></span> Your Profile</a>
             <span></span>
             <a class="dropdown-item" href="logout.php"><span class="fa fa-sign-out"></span> Logout</a>
           </div>
