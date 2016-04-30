@@ -40,7 +40,7 @@
                   </div>
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
-                    <button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextArea')">Clear</button>
+                    <button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>
                   </div>
                 </div>
               </div>
