@@ -31,7 +31,8 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span class="fa fa-close"></span>
          </button>
-        Thanks for registering for <strong>The Buzz!</strong> Please login to confirm your registration.
+        <div id="reg-alert-content">
+        </div>
       </div>
       <h2><span class="fa fa-sign-in"></span> Login</h2>
       <form action="login.php" method="post">
@@ -54,10 +55,12 @@
       if ("<?php echo $action; ?>" == "registered"){
         $('#reg-alert').addClass("alert-info");
         $('#reg-alert').addClass("in");
+        $('#reg-alert-content').html("Thanks for registering for <strong>The Buzz!</strong> Please login to confirm your registration.");
       }
       else if ("<?php echo $action; ?>" == "failed"){
         $('#reg-alert').addClass("alert-danger");
         $('#reg-alert').addClass("in");
+        $('#reg-alert-content').html("Woops, sometimes honey makes it hard to type. Try entering your email and password again.");
       }
     </script>
   </body>
