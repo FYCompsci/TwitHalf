@@ -45,7 +45,7 @@
 					arr.push(feedData[key]);
 				}
 				arr.sort(compareTimestamp);
-				for (var i=0; i<=arr.length; i++) {
+				for (var i=0; i<arr.length; i++) {
 					date = new Date(arr[i][3]*1000);
 					date = date.getFullYear() + "/" + (1 + Number(date.getMonth())) + "/" + date.getDate();
 					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title"><a href="user.php?username='+arr[i][1]+'">@'+arr[i][1]+'</a> <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
