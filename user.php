@@ -72,6 +72,7 @@ else{
 					*/
 			  }
 			}
+      hashtag_regexp = /#([a-zA-Z0-9]+)/g;
       function linkHashtags(text) {
           return text.replace(
               hashtag_regexp,
