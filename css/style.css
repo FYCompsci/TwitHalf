@@ -7,6 +7,7 @@ body {
   min-width: 100%;
   min-height: 100%;
 	padding-top: 75px;
+  padding-bottom: 40px;
 }
 .footer {
   position: absolute;
