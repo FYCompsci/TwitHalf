@@ -46,22 +46,7 @@
 						</br>
             <input class="btn btn-primary-outline" type="submit" value="Register" />
           </form>
-					<!--
-					<h4 style="text-align:center;">or,</h4>
-          <h2><span class="fa fa-key"></span> Login</h2>
-          <form action="login.php" method="post">
-            <div class="row">
-              <div class="col-sm-6">
-                Email: <input type="text" class="form-control" name="email" value="" />
-              </div>
-              <div class="col-sm-6">
-                Password: <input type="password" class="form-control" name="password" value="" />
-              </div>
-            </div>
-						</br>
-						<input class="btn btn-primary-outline" type="submit" value="Login" />
-          </form>
-					-->
+					<h3>Already have an account? <a href="login_page.php">Log in.</a></h3>
         </div>
       </div>
     </div>
