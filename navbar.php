@@ -34,6 +34,8 @@
         <li class="nav-item dropdown pull-xs-right">
           <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-inbox"></span> Hey @<?php echo $_SESSION['user']['username']; ?>!</a>
           <div class="dropdown-menu" style="padding:5px;">
+            <a class="dropdown-item" href="home.php"><span class="fa fa-home"></span> Home</a>
+            <span></span>
             <a class="dropdown-item" href="user.php?username=<?php echo $_SESSION['user']['username']; ?>"><span class="fa fa-user"></span> Your Profile</a>
             <span></span>
             <a class="dropdown-item" href="logout.php"><span class="fa fa-sign-out"></span> Logout</a>
