@@ -17,8 +17,9 @@ else{
 		<meta name="author" content="">
 		<title><?php echo $page_username; ?> | The Buzz</title>
 		<link href="favicon.ico" rel="icon" />
-<link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <style>
 			.full-nav > li > .dropdown-menu { min-width: 300px;}
     </style>
