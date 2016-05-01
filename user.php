@@ -23,7 +23,7 @@ else{
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
-     <div class="container>
+      <div class="container">
 			<h1 class="display-2">@<?php echo $page_username; ?></h1>
 			<h4>Here's what they've been <b>buzzing about.</b></h4>
 				<div id="feed-container">

@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
-     <div class="container>
+      <div class="container">
       <div class="row">
         <div class="col-sm-8">
           <div class="card">
