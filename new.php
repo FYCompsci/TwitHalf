@@ -11,9 +11,6 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link href="css/style.css" rel="stylesheet" />
-    <style>
-			.full-nav > li > .dropdown-menu { min-width: 300px;}
-    </style>
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
@@ -23,7 +20,8 @@
 				<div id="feed-container">
 			</div>
     </div>
-    <script src="js/jquery2.min.js"></script>
+    <?php include_once ('footer.php'); ?>
+		<script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 		<script>
 			function httpGet(theUrl){

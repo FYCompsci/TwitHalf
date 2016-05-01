@@ -20,9 +20,6 @@ else{
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <style>
-			.full-nav > li > .dropdown-menu { min-width: 300px;}
-    </style>
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
@@ -32,6 +29,7 @@ else{
 				<div id="feed-container">
 			</div>
     </div>
+    <?php include_once ('footer.php'); ?>
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 		<script>
