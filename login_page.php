@@ -1,4 +1,5 @@
 <?php
+
 	require("common.php");
 	if(!(empty($_SESSION['user']))){
 		header("Location: home.php");
@@ -24,7 +25,7 @@
 	<body>
 		<?php include_once ('navbar.php'); ?>
     <div class="container">
-      <div class="alert alert-primary alert-dismissable fade" role="alert" id="reg-alert">
+      <div class="alert alert-info alert-dismissable fade" role="alert" id="reg-alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span class="fa fa-close"></span>
          </button>
