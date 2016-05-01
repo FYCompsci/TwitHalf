@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
-    <div class="container" style="padding-top:70px;">
+     <div class="container>
 			<h1 class="display-2">What's new?</h1>
 			<h4>Find about what everybody is <b>buzzing about.</b></h4>
 				<div id="feed-container">

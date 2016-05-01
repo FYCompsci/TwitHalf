@@ -1,6 +1,15 @@
+html {
+	position: relative;
+  min-width: 100%;
+  min-height: 100%;
+}
+body {
+  min-width: 100%;
+  min-height: 100%;
+	padding-top: 75px;
+	margin-bottom: 60px;
+}
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 60px;
 	text-align:center;
