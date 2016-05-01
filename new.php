@@ -48,7 +48,7 @@
 				for (var i=0; i<=arr.length; i++) {
 					date = new Date(arr[i][3]*1000);
 					date = date.getFullYear() + "/" + (1 + Number(date.getMonth())) + "/" + date.getDate();
-					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title"><a href="user.php?username='+arr[i][1]+'">@'+arr[i][1]+'</a> <spanspan class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
+					$("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title"><a href="user.php?username='+arr[i][1]+'">@'+arr[i][1]+'</a> <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</p></div></div>');
 					/*
 					Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
 					<div class="card">

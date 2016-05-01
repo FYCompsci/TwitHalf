@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_GET['username'])){
-  $page_username = $_GET['username'];
+if (isset($_GET['hashtag'])){
+  $page_hashtag = $_GET['hashtag'];
 }
 else{
   header("Location: index.php");
@@ -15,7 +15,7 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="author" content="">
-		<title><?php echo $page_username; ?> | The Buzz</title>
+		<title><?php echo $page_hashtag; ?> | The Buzz</title>
 		<link href="favicon.ico" rel="icon" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -24,7 +24,7 @@ else{
 	<body>
 		<?php include_once ('navbar.php'); ?>
       <div class="container">
-			<h1 class="display-2">@<?php echo $page_username; ?></h1>
+			<h1 class="display-2">@<?php echo $page_hashtag; ?></h1>
 			<h4>Here's what they've been <b>buzzing about.</b></h4>
 				<div id="feed-container">
 			</div>
@@ -48,11 +48,11 @@ else{
 				else
 					return 0;
 			}
-      var username = "<?php echo $page_username; ?>";
+      var hashtag = "<?php echo $page_hashtag; ?>";
 			function buildPosts(){
 				var arr = [];
 				for (var key in feedData){
-          if (feedData[key][1] == username){
+          if (feedData[key][4] == hashtag){
   					arr.push(feedData[key]);
           }
 				}
