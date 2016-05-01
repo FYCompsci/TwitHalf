@@ -72,8 +72,17 @@ else{
 					*/
 			  }
 			}
+      function linkHashtags(text) {
+          return text.replace(
+              hashtag_regexp,
+              '<a class="hashtag" href="hashtag.php?hashtag=$1">#$1</a>'
+          );
+      }
 			$( document ).ready(function() {
 			    buildPosts();
+          $('.card').each(function() {
+              $(this).html(linkHashtags($(this).html()));
+          });
 			});
 		</script>
   </body>
