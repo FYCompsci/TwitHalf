@@ -115,8 +115,8 @@
             die("Failed to run query: " . $ex->getMessage());
         }
 
-        header("Location: index.php");
-        die("Redirecting to index.php");
+        header("Location: login_page.php?register");
+        die("Redirecting to login_page.php?register");
     }
 
 ?>

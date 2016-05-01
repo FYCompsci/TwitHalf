@@ -57,7 +57,8 @@
         }
         else
         {
-            print("Login Failed.");
+          header("Location: login_page.php?failed");
+          die("Redirecting to: login_page.php?failed");
         }
     }
 

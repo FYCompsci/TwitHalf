@@ -1,5 +1,4 @@
 <?php
-
 	require("common.php");
 	if(!(empty($_SESSION['user']))){
 		header("Location: home.php");
@@ -7,6 +6,9 @@
 	}
   if (isset($_GET['register'])){
     $action = "registered";
+  }
+  else if (isset($_GET['failed'])){
+    $action = "failed";
   }
 ?>
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
 	<body>
 		<?php include_once ('navbar.php'); ?>
     <div class="container">
-      <div class="alert alert-info alert-dismissable fade" role="alert" id="reg-alert">
+      <div class="alert alert-dismissable fade" role="alert" id="reg-alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span class="fa fa-close"></span>
          </button>
@@ -50,6 +52,11 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
       if ("<?php echo $action; ?>" == "registered"){
+        $('#reg-alert').addClass("alert-info");
+        $('#reg-alert').addClass("in");
+      }
+      else if ("<?php echo $action; ?>" == "failed"){
+        $('#reg-alert').addClass("alert-danger");
         $('#reg-alert').addClass("in");
       }
     </script>
