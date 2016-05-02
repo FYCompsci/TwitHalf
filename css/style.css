@@ -22,3 +22,7 @@ body {
 .full-nav > li > .dropdown-menu {
   min-width: 300px;
 }
+
+.label > .hashtag{
+	color:white;
+}
