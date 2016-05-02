@@ -50,6 +50,6 @@ function linkHashtags(text) {
 function linkUsernames(text) {
     return text.replace(
         username_regexp,
-        '<a class="hashtag" href="user.php?username=$1">#$1</a>'
+        '<a class="hashtag" href="user.php?username=$1">@$1</a>'
     );
 }
