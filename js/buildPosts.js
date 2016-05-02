@@ -20,7 +20,7 @@ function buildPosts(username,hashtag){
   var arr = [];
   for (var key in feedData){
     if (feedData[key][1] == username || username == "all"){
-      if (feedData[key][4] == hashtag || hashtag == "all"){
+      if ($.inArray(hashtag, feedData[key][5].split(",")) > -1 || hashtag == "all"){
         arr.push(feedData[key]);
       }
     }
