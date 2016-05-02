@@ -31,8 +31,8 @@ function buildPosts(username,hashtag){
     date = date.getFullYear() + "/" + (1 + Number(date.getMonth())) + "/" + date.getDate();
     hashtags = arr[i][5].split(",");
     hashtag_label = "";
-    for (i = 0; i < hashtags.length; i++){
-      hashtag_label = hashtag_label + '<span class="label label-pill label-warning">hashtags[i]</span> ';
+    for (j = 0; j < hashtags.length; j++){
+      hashtag_label = hashtag_label + '<span class="label label-pill label-warning">'+hashtags[j]+'</span> ';
     }
 
     $("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</br>'+ hashtag_label +'</p></div></div>');
