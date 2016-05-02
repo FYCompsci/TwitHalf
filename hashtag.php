@@ -35,7 +35,7 @@ else{
     <script src="js/buildPosts.js"></script>
 		<script>
 			$( document ).ready(function() {
-					buildPosts("all", "<?php echo $page_hashtag; ?>");
+					buildPosts("all", "#<?php echo $page_hashtag; ?>");
 					$('.card').each(function() {
 							$(this).html(linkHashtags($(this).html()));
 							$(this).html(linkUsernames($(this).html()));
