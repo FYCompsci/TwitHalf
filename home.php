@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
-      <div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-sm-8">
           <div class="alert alert-success alert-dismissable fade in" role="alert">
@@ -38,7 +38,7 @@
                   </div>
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
-                    <button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>
+                    <!--<button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>-->
                   </div>
                 </div>
               </div>
@@ -76,9 +76,11 @@
 						$(this).html(linkUsernames($(this).html()));
 				});
 			});
+			/*
 			function clearTextBox(container){
 				$(container).attr("value", "");
 			}
+			*/
 		</script>
   </body>
 </html>
