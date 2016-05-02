@@ -1,7 +1,7 @@
 <?php
 
   function getHashtags($string) {
-    $hashtags= FALSE;
+    $hashtags= false;
     preg_match_all("/(#\w+)/u", $string, $matches);
     if ($matches) {
         $hashtagsArray = array_count_values($matches[0]);
@@ -24,7 +24,7 @@
       $hashtag_final = "none";
     }
     else{
-      $hashtag_final = implode(",", $getHashtags($_POST['content']));
+      $hashtag_final = implode(",", getHashtags($_POST['content']));
     }
     $query_params = array(
         ':author' => $_SESSION['user']['username'],
