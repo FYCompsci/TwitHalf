@@ -32,7 +32,7 @@ function buildPosts(username,hashtag){
     hashtags = arr[i][5].split(",");
     hashtag_label = "";
     for (i = 0; i < hashtags.length; i++){
-      hashtag_label.append('<span class="label label-pill label-warning">hashtags[i]</span> ');
+      hashtag_label = hashtag_label + '<span class="label label-pill label-warning">hashtags[i]</span> ';
     }
 
     $("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</br>'+ hashtag_label +'</p></div></div>');
