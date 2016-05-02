@@ -44,24 +44,8 @@
               </div>
             </form>
           </div>
-          <div class="card">
-            <div class="card-block">
-              <h4 class="card-title">Matthew Wang <span class="text-muted">@malsf21</span></h4>
-              <p class="card-text">@hedgeriot I'm loving the functionality of @GitHub and @Atom combined together, you should try it #coding #compsci #webdesign</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-block">
-              <h4 class="card-title">Matthew Wang <span class="text-muted">@malsf21</span></h4>
-              <p class="card-text">@hedgeriot I'm loving the functionality of @GitHub and @Atom combined together, you should try it #coding #compsci #webdesign</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-block">
-              <h4 class="card-title">Matthew Wang <span class="text-muted">@malsf21</span></h4>
-              <p class="card-text">@hedgeriot I'm loving the functionality of @GitHub and @Atom combined together, you should try it #coding #compsci #webdesign</p>
-            </div>
-          </div>
+          <div id="feed-container">
+					</div>
         </div>
         <div class="col-sm-4">
           <div class="card">
@@ -83,7 +67,15 @@
     <?php include_once ('footer.php'); ?>
 		<script src="js/jquery2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/buildPosts.js"></script>
 		<script>
+			$( document ).ready(function() {
+				buildPosts("all", "all");
+				$('.card').each(function() {
+						$(this).html(linkHashtags($(this).html()));
+						$(this).html(linkUsernames($(this).html()));
+				});
+			});
 			function clearTextBox(container){
 				$(container).attr("value", "");
 			}
