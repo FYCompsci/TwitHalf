@@ -29,24 +29,25 @@ function buildPosts(username,hashtag){
   for (var i=0; i<arr.length; i++) {
     date = new Date(arr[i][3]*1000);
     date = date.getFullYear() + "/" + (1 + Number(date.getMonth())) + "/" + date.getDate();
-    hashtag_label = "";
-    if (hashtags != "none"){
+    if (arr[i][5] != "none"){
       hashtags = arr[i][5].split(",");
+      hashtag_label = "</br>";
       for (j = 0; j < hashtags.length; j++){
         hashtag_label = hashtag_label + '<span class="label label-pill label-warning">'+hashtags[j]+'</span> ';
       }
     }
+    else{
+      hashtag_label = "";
+    }
 
-    $("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+'</br>'+ hashtag_label +'</p></div></div>');
+    $("#feed-container").append('<div class="card"><div class="card-block"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2] + hashtag_label +'</p></div></div>');
     /*
     Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+'arr[i][3]'+'</small></span></h4>
         <p class="card-text">
-          '+arr[i][2]+'
-          </br>
-          '+ hashtag_label +'
+          '+arr[i][2]+ hashtag_label +'
         </p>
       </div>
     </div>
