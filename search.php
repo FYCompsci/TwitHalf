@@ -4,7 +4,7 @@ if (isset($_GET['searchType'])){
   $page_searchType = $_GET['searchType'];
 }
 else{
-	$page_searchType = "all";
+	$page_searchType = "user";
 }
 ?>
 <!DOCTYPE html>
@@ -35,9 +35,11 @@ else{
 					</div>
 					</br>
 					<ul class="nav nav-pills nav-stacked">
+						<!--
 					  <li class="nav-item">
 					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Search All</a>
 					  </li>
+						-->
 					  <li class="nav-item">
 					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Search by User</a>
 					  </li>
