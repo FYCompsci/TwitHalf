@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (isset($_GET['searchType'])){
+  $page_searchType = $_GET['searchType'];
+}
+else{
+	$page_searchType = "all";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,18 +28,18 @@ session_start();
 					<form>
 						<div class="input-group">
 							<input type="form" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
-							<div class="input-group-addon" onclick="search()"><span class="fa fa-search"></span></div>
+							<button class="btn btn-primary input-group-addon" onclick="search()"><span class="fa fa-search"></span></button>
 						</div>
 					</form>
 					<ul class="nav nav-pills nav-stacked">
 					  <li class="nav-item">
-					    <a class="nav-link active" href="#"><span class="fa fa-list-alt"></span> Sort by All</a>
+					    <a class="nav-link" href="?searchType='all'" id="searchType-all"><span class="fa fa-list-alt"></span> Sort by All</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" onclick="swapSearchType('user');"><span class="fa fa-user"></span> Sort by User</a>
+					    <a class="nav-link" href="?searchType='user'" id="searchType-user"><span class="fa fa-user"></span> Sort by User</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" onclick="swapSearchType('hashtag');"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
+					    <a class="nav-link" href="?searchType='hashtag'" id="searchType-hashtag"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
 					  </li>
 					</ul>
 				</div>
@@ -50,6 +56,7 @@ session_start();
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
 		<script>
+			/*
 			$( document ).ready(function() {
 					buildPosts("all", "all");
 					$('.card').each(function() {
@@ -57,12 +64,12 @@ session_start();
 						$(this).html(linkUsernames($(this).html()));
 					});
 			});
-			var searchType = "user";
-			function swapSearchType(type){
-				searchType = type;
-			}
+			*/
+			var searchType = "<?php echo $page_searchType; ?>";
+			$("#searchType-" + searchType).addClass("active");
 			function search(){
-				var query = ('#searchBar').val();
+				$('#feed-container').html("");
+				var query = $('#searchBar').val();
 				if (searchType == "user"){
 					if (query.charAt(0) == "@"){
 						query = query.substring(1);
