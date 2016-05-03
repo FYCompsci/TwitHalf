@@ -4,8 +4,8 @@ if (isset($_GET['username'])){
   $page_username = $_GET['username'];
 }
 else{
-  header("Location: index.php");
-  die("Redirecting to index.php");
+  header("Location: search.php");
+  die("Redirecting to search.php");
 }
 ?>
 <!DOCTYPE html>
@@ -24,8 +24,15 @@ else{
 	<body>
 		<?php include_once ('navbar.php'); ?>
       <div class="container">
-			<h1 class="display-2">@<?php echo $page_username; ?></h1>
-			<h4>Here's what they've been <b>buzzing about.</b></h4>
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="img-fluid" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png">
+            <h1>@<?php echo $page_username; ?></h1>
+      			<h4>Here's what they've been <b>buzzing about.</b></h4>
+          </div>
+          <div class="col-sm-8">
+          </div>
+        </div>
 				<div id="feed-container">
 			</div>
     </div>
