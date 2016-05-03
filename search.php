@@ -36,13 +36,13 @@ else{
 					</br>
 					<ul class="nav nav-pills nav-stacked">
 					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Sort by All</a>
+					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Search All</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Sort by User</a>
+					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Search by User</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=hashtag' id="searchType-hashtag"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
+					    <a class="nav-link" href='?searchType=hashtag' id="searchType-hashtag"><span class="fa fa-hashtag"></span> Search by Hashtag</a>
 					  </li>
 					</ul>
 				</div>
