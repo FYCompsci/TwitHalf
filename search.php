@@ -24,13 +24,13 @@ else{
 		<?php include_once ('navbar.php'); ?>
     <div class="container">
       <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-4">
 					<div class="row">
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
 						</div>
 						<div class="col-sm-3">
-							<button class="btn btn-block btn-warning" onclick="search()"><span class="fa fa-search"></span></button>
+							<button class="btn btn-block btn-warning" onclick="search()" style="text-align:center;"><span class="fa fa-search"></span></button>
 						</div>
 					</div>
 					</br>
@@ -46,7 +46,7 @@ else{
 					  </li>
 					</ul>
 				</div>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div id="feed-container">
 						<h1>You haven't searched anything yet.</h1>
 						<h3>You can search by @username or by #hashtag</h3>
