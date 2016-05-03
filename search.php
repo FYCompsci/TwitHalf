@@ -18,8 +18,21 @@ session_start();
 		<?php include_once ('navbar.php'); ?>
     <div class="container">
       <div class="row">
-        <div class="col-sm-3"></div>
-				<div class="col-sm-9"></div>
+        <div class="col-sm-3">
+					<form>
+						<div class="input-group">
+							<input type="form" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
+							<div class="input-group-addon" onclick="search()"><span class="fa fa-search"></span></div>
+						</div>
+					</form>
+					<div class="list-group">
+					  <button type="button" class="list-group-item"><span class="fa fa-user"></span> Sort by User</button>
+					  <button type="button" class="list-group-item"># Sort by Hashtag</button>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div id="feed-container"></div>
+				</div>
       </div>
     </div>
     <?php include_once ('footer.php'); ?>
