@@ -35,16 +35,10 @@
       <?php } else{ ?>
         <li class="nav-item dropdown pull-xs-right">
           <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <div class="row">
-              <div class="col-sm-4">
-                <img class="img-fluid center-block" src="https://api.adorable.io/avatars/8/<?php echo $_SESSION['user']['username']; ?>.png" alt="The drones bees are almost done their work!">
-              </div>
-              <div class="col-sm-8">
-                @<?php echo $_SESSION['user']['username']; ?>!
-              </div>
-            </div>
+            @<?php echo $_SESSION['user']['username']; ?>!
           </a>
           <div class="dropdown-menu" style="padding:5px;">
+            <a class="dropdown-item" href="user.php?username=<?php echo $_SESSION['user']['username']; ?>"><img class="img-fluid center-block" src="https://api.adorable.io/avatars/8/<?php echo $_SESSION['user']['username']; ?>.png" alt="The drones bees are almost done their work!"></a>
             <a class="dropdown-item" href="home.php"><span class="fa fa-home"></span> Home</a>
             <span></span>
             <a class="dropdown-item" href="user.php?username=<?php echo $_SESSION['user']['username']; ?>"><span class="fa fa-user"></span> Your Profile</a>
