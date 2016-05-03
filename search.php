@@ -30,9 +30,10 @@ else{
 							<input type="text" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
 						</div>
 						<div class="col-sm-3">
-							<button class="btn btn-primary" onclick="search()"><span class="fa fa-search"></span></button>
+							<button class="btn btn-block btn-warning" onclick="search()"><span class="fa fa-search"></span></button>
 						</div>
 					</div>
+					</br>
 					<ul class="nav nav-pills nav-stacked">
 					  <li class="nav-item">
 					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Sort by All</a>
@@ -47,7 +48,7 @@ else{
 				</div>
 				<div class="col-sm-9">
 					<div id="feed-container">
-						<h1 class="display-4">You haven't searched anything yet.</h1>
+						<h1>You haven't searched anything yet.</h1>
 						<h3>You can search by @username or by #hashtag</h3>
 					</div>
 				</div>
@@ -58,15 +59,6 @@ else{
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
 		<script>
-			/*
-			$( document ).ready(function() {
-					buildPosts("all", "all");
-					$('.card').each(function() {
-						$(this).html(linkHashtags($(this).html()));
-						$(this).html(linkUsernames($(this).html()));
-					});
-			});
-			*/
 			var searchType = "<?php echo $page_searchType; ?>";
 			$("#searchType-" + searchType).addClass("active");
 			function search(){
@@ -82,7 +74,16 @@ else{
 						query = "#" + query;
 					}
 				}
-				console.log(query);
+				if (searchType == "user"){
+					buildPosts(query, "all");
+				}
+				else if (searchType == "hashtag"){
+					buildPosts("all", query);
+				}
+				$('.card').each(function() {
+					$(this).html(linkHashtags($(this).html()));
+					$(this).html(linkUsernames($(this).html()));
+				});
 			}
 		</script>
   </body>
