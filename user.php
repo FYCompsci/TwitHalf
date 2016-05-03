@@ -26,14 +26,14 @@ else{
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <img class="img-fluid" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png">
+            <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png">
             <h1>@<?php echo $page_username; ?></h1>
       			<h4>Here's what they've been <b>buzzing about.</b></h4>
           </div>
           <div class="col-sm-8">
+            <div id="feed-container">
           </div>
         </div>
-				<div id="feed-container">
 			</div>
     </div>
     <?php include_once ('footer.php'); ?>
