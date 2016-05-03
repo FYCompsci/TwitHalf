@@ -35,8 +35,14 @@
       <?php } else{ ?>
         <li class="nav-item dropdown pull-xs-right">
           <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            <img class="img-fluid center-block" src="https://api.adorable.io/avatars/16/<?php echo $_SESSION['user']['username'] ?>.png" alt="The drones bees are almost done their work!">
-            Hey @<?php echo $_SESSION['user']['username']; ?>!
+            <div class="row">
+              <div class="col-sm-4">
+                <img class="img-fluid center-block" src="https://api.adorable.io/avatars/8/<?php echo $_SESSION['user']['username']; ?>.png" alt="The drones bees are almost done their work!">
+              </div>
+              <div class="col-sm-8">
+                @<?php echo $_SESSION['user']['username']; ?>!
+              </div>
+            </div>
           </a>
           <div class="dropdown-menu" style="padding:5px;">
             <a class="dropdown-item" href="home.php"><span class="fa fa-home"></span> Home</a>
