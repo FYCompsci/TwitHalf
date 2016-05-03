@@ -26,7 +26,7 @@ else{
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png">
+            <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png" alt="The drones bees are almost done their work!">
             <h1>@<?php echo $page_username; ?></h1>
       			<h4>Here's what they've been <b>buzzing about.</b></h4>
           </div>
