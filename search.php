@@ -25,18 +25,56 @@ session_start();
 							<div class="input-group-addon" onclick="search()"><span class="fa fa-search"></span></div>
 						</div>
 					</form>
-					<div class="list-group">
-					  <button type="button" class="list-group-item"><span class="fa fa-user"></span> Sort by User</button>
-					  <button type="button" class="list-group-item"># Sort by Hashtag</button>
-					</div>
+					<ul class="nav nav-pills nav-stacked">
+					  <li class="nav-item">
+					    <a class="nav-link active" href="#"><span class="fa fa-list-alt"></span> Sort by All</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" onclick="swapSearchType('user');"><span class="fa fa-user"></span> Sort by User</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" onclick="swapSearchType('hashtag');"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
+					  </li>
+					</ul>
 				</div>
 				<div class="col-sm-9">
-					<div id="feed-container"></div>
+					<div id="feed-container">
+						<h1 class="display-4">You haven't searched anything yet.</h1>
+						<h3>You can search by @username or by #hashtag</h3>
+					</div>
 				</div>
       </div>
     </div>
     <?php include_once ('footer.php'); ?>
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+		<script src="js/buildPosts.js"></script>
+		<script>
+			$( document ).ready(function() {
+					buildPosts("all", "all");
+					$('.card').each(function() {
+						$(this).html(linkHashtags($(this).html()));
+						$(this).html(linkUsernames($(this).html()));
+					});
+			});
+			var searchType = "user";
+			function swapSearchType(type){
+				searchType = type;
+			}
+			function search(){
+				var query = ('#searchBar').val();
+				if (searchType == "user"){
+					if (query.charAt(0) == "@"){
+						query = query.substring(1);
+					}
+				}
+				else if (searchType == "hashtag"){
+					if (query.charAt(0) != "#"){
+						query = "#" + query;
+					}
+				}
+				console.log(query);
+			}
+		</script>
   </body>
 </html>
