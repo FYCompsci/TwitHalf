@@ -25,21 +25,23 @@ else{
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-					<form>
-						<div class="input-group">
-							<input type="form" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
-							<button class="btn btn-primary input-group-addon" onclick="search()"><span class="fa fa-search"></span></button>
+					<div class="row">
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="searchBar" placeholder="Search by @username or #hashtag">
 						</div>
-					</form>
+						<div class="col-sm-3">
+							<button class="btn btn-primary" onclick="search()"><span class="fa fa-search"></span></button>
+						</div>
+					</div>
 					<ul class="nav nav-pills nav-stacked">
 					  <li class="nav-item">
-					    <a class="nav-link" href="?searchType='all'" id="searchType-all"><span class="fa fa-list-alt"></span> Sort by All</a>
+					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Sort by All</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="?searchType='user'" id="searchType-user"><span class="fa fa-user"></span> Sort by User</a>
+					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Sort by User</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="?searchType='hashtag'" id="searchType-hashtag"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
+					    <a class="nav-link" href='?searchType=hashtag' id="searchType-hashtag"><span class="fa fa-hashtag"></span> Sort by Hashtag</a>
 					  </li>
 					</ul>
 				</div>
