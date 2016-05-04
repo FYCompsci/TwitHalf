@@ -81,6 +81,14 @@
 				$(container).attr("value", "");
 			}
 			*/
+			$(function(){
+				$("#submitTextarea").keypress(function(event){
+						var ew = event.which;
+						if(ew == 60 || ew == 62)
+								return false;
+						return true;
+				});
+			});
 		</script>
   </body>
 </html>
