@@ -24,9 +24,10 @@
             WHERE
                 username = :username
         ";
+        $legit_username = preg_replace('/\s+/', '', $_POST['username']);
 
         $query_params = array(
-            ':username' => $_POST['username']
+            ':username' => $legit_username
         );
 
         try
