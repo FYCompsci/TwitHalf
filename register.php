@@ -100,7 +100,7 @@
         }
 
         $query_params = array(
-            ':username' => $_POST['username'],
+            ':username' => $legit_username,
             ':password' => $password,
             ':salt' => $salt,
             ':email' => $_POST['email']
