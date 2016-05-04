@@ -38,7 +38,7 @@
         <div class="col-sm-5">
           <h2><span class="fa fa-user-plus"></span> Register</h2>
           <form action="register.php" method="post">
-            Username: <input class="form-control" type="text" name="username" value="" />
+            Username: <input class="form-control" type="text" name="username" value="" id='reg-username' />
 						</br>
             Email: <input class="form-control" type="text" name="email" value="" />
 						</br>
@@ -53,5 +53,19 @@
 		<?php include_once ('footer.php'); ?>
 		<script src="js/jquery2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+		$(function(){
+			$("#reg-username").keypress(function(event){
+					var ew = event.which;
+					if(48 <= ew && ew <= 57)
+							return true;
+					if(65 <= ew && ew <= 90)
+							return true;
+					if(97 <= ew && ew <= 122)
+							return true;
+					return false;
+			});
+		});
+		</script>
   </body>
 </html>
