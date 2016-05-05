@@ -81,7 +81,7 @@
     ";
 
     $query_params = array(
-        ':id' => $_GET['like']
+        ':id' => $_GET['unlike']
     );
 
     try
@@ -107,7 +107,7 @@
       UPDATE posts SET liked=:likers WHERE id=:post
     ";
     $query_params = array(
-      ':post' => $_GET['like'],
+      ':post' => $_GET['unlike'],
       ':likers' => $likers
     );
     try
