@@ -89,7 +89,12 @@
         $('#home-alert').addClass("in");
         $('#home-alert-content').html("You just <strong>successfuly</strong> deleted a post.");
       }
-      else if ("<?php echo $action; ?>" == "default"){
+			else if ("<?php echo $action; ?>" == "like"){
+        $('#home-alert').addClass("alert-info");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("You just <strong>successfuly</strong> liked a post.");
+      }
+      else{
         $('#home-alert').addClass("alert-success");
         $('#home-alert').addClass("in");
         $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
