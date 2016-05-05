@@ -75,6 +75,52 @@
     header("Location: home.php?alert=like");
     die("Redirecting to home.php?alert=like");
   }
+  else if (isset($_GET['unlikelike'])){
+    $query = "
+        SELECT * FROM posts WHERE id=:id
+    ";
+
+    $query_params = array(
+        ':id' => $_GET['like']
+    );
+
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
+    }
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+
+    $row = $stmt->fetch();
+
+    if($row)
+    {
+        $likers = $row['liked'];
+    }
+    $likers = str_replace($_SESSION['user']['username'], '', $likers);
+    $query = "
+      UPDATE posts SET liked=:likers WHERE id=:post
+    ";
+    $query_params = array(
+      ':post' => $_GET['like'],
+      ':likers' => $likers
+    );
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
+    }
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+
+    header("Location: home.php?alert=like");
+    die("Redirecting to home.php?alert=like");
+  }
   else if(!empty($_POST))
   {
     if (isset($_GET['retweet'])){
