@@ -116,6 +116,39 @@
             die("Failed to run query: " . $ex->getMessage());
         }
 
+        $query = "
+            INSERT INTO info (
+                username,
+                admin,
+                following,
+                bio
+            ) VALUES (
+                :username,
+                :admin,
+                :following,
+                :bio
+            )
+        ";
+
+        $query_params = array(
+            ':username' => $legit_username,
+            ':admin' => 0,
+            ':following' => $legit_username,
+            ':bio' => "Hey, it's ".$legit_username."!"
+        );
+
+        try
+        {
+            $stmt = $db->prepare($query);
+            $result = $stmt->execute($query_params);
+        }
+        catch(PDOException $ex)
+        {
+            die("Failed to run query: " . $ex->getMessage());
+        }
+
+
+
         header("Location: login_page.php?register");
         die("Redirecting to login_page.php?register");
     }
