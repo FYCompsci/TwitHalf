@@ -26,9 +26,10 @@
     else{
       $hashtag_final = implode(",", getHashtags($_POST['content']));
     }
+    $legit_content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
     $query_params = array(
         ':author' => $_SESSION['user']['username'],
-        ':content' => $_POST['content'],
+        ':content' => $legit_content,
         ':timestamp' => $current_time,
         ':reply' => $reply,
         ':hashtag' => $hashtag_final
