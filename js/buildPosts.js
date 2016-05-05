@@ -10,7 +10,7 @@ function httpGet(theUrl){
   return xmlHttp.responseText;
 }
 var feedData = JSON.parse(httpGet("feed.php"));
-var infoData = JSON.parse(httpGet("info.php?=" + page_username));
+var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
 function compareTimestamp(a,b) {
   if (a[3] < b[3])
     return 1;
@@ -44,7 +44,7 @@ function buildPosts(username,hashtag){
     }
 
     bar = '<span class="fa fa-heart-o"></span>  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
-    if (arr[i][1] == pageUser || infoData['admin'] == 1){
+    if (arr[i][1] == page_username || infoData['admin'] == 1){
       bar = bar + '  <span class="fa fa-close"></span>';
     }
     bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
