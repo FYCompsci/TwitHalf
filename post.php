@@ -51,7 +51,8 @@
         ':content' => $legit_content,
         ':timestamp' => $current_time,
         ':reply' => $reply,
-        ':hashtag' => $hashtag_final
+        ':hashtag' => $hashtag_final,
+        ':liked' => $_SESSION['user']['username']
     );
 
     $query = "
@@ -60,13 +61,15 @@
             content,
             timestamp,
             reply,
-            hashtag
+            hashtag,
+            liked
         ) VALUES (
             :author,
             :content,
             :timestamp,
             :reply,
-            :hashtag
+            :hashtag,
+            :liked
         )
     ";
 
