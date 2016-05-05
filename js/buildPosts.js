@@ -55,7 +55,7 @@ function buildPosts(username,hashtag){
 
 
 
-    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text">'+bar+'</p></div></div></div></div>');
+    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text"><div class="row"><div class="col-sm-6">'+arr[i][2]+ hashtag_label +'</div><div class="col-sm-6">'+bar+'</div></p></div></div></div></div>');
     /*
     Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
     <div class="card">
@@ -67,10 +67,13 @@ function buildPosts(username,hashtag){
           <div class="col-sm-10">
             <h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4>
             <p class="card-text">
-              '+arr[i][2]+ hashtag_label +'
-            </p>
-            <p class="card-text">
-              '+bar+'
+              <div class="row">
+                <div class="col-sm-6">
+                  '+arr[i][2]+ hashtag_label +'
+                </div>
+                <div class="col-sm-6">
+                  '+bar+'
+                </div>
             </p>
           </div>
         </div>
