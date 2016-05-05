@@ -56,11 +56,11 @@
         $likers = $row['liked'];
     }
     $query = "
-      UPDATE posts SET liked=:likers WHERE id:post;
+      UPDATE posts SET liked=:likers WHERE id=:post
     ";
     $query_params = array(
       ':post' => $_GET['like'],
-      ':likers' => $likers.$_SESSION['user']['username']
+      ':likers' => $likers.",".$_SESSION['user']['username']
     );
     try
     {
