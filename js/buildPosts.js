@@ -40,7 +40,7 @@ function buildPosts(username,hashtag){
       hashtag_label = "";
     }
 
-    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p></div></div></div></div>');
+    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text"><span class="fa fa-heart-o"></span><span class="fa fa-reply"></span><span class="fa fa-retweet"></span> <span class="fa fa-exclamation-triangle"></span></p></div></div></div></div>');
     /*
     Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
     <div class="card">
@@ -50,10 +50,16 @@ function buildPosts(username,hashtag){
             <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!">
           </div>
           <div class="col-sm-10">
-          <h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4>
-          <p class="card-text">
-            '+arr[i][2]+ hashtag_label +'
-          </p>
+            <h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4>
+            <p class="card-text">
+              '+arr[i][2]+ hashtag_label +'
+            </p>
+            <p class="card-text">
+            <span class="fa fa-heart-o"></span>
+            <span class="fa fa-reply"></span>
+            <span class="fa fa-retweet"></span>
+            <span class="fa fa-exclamation-triangle"></span>
+            </p>
           </div>
         </div>
       </div>
