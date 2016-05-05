@@ -42,10 +42,10 @@ function buildPosts(username,hashtag){
     }
     bar = '';
     if ($.inArray(page_username, arr[i][6].split(",")) > -1){
-      bar = bar + '<span class="fa fa-heart" style="color:red;"></span>'
+      bar = bar + '<span class="fa fa-heart" style="color:red;"></span>';
     }
     else{
-      bar = bar + '<span class="fa fa-heart-o" style="color:red;"></span>'
+      bar = bar + '<a href="post.php?like=' + arr[i][0] +'"><span class="fa fa-heart-o" style="color:red;"></span></a>';
     }
     bar = bar + '  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
     if (arr[i][1] == page_username || infoData['admin'] == 1){
