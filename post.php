@@ -100,7 +100,8 @@
     {
         $likers = $row['liked'];
     }
-    $likers = str_replace(",".$_SESSION['user']['username'], '', $likers);
+    $comma_string = ",".$_SESSION['user']['username'];
+    $likers = str_replace($comma_string, '', $likers);
     $likers = str_replace($_SESSION['user']['username'], '', $likers);
     $query = "
       UPDATE posts SET liked=:likers WHERE id=:post
