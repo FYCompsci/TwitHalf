@@ -77,11 +77,11 @@
   }
   else if(!empty($_POST))
   {
-    if (isset($_GET['reply'])){
-      $reply = $_GET['reply'];
+    if (isset($_GET['retweet'])){
+      $retweet = $_GET['retweet'];
     }
     else{
-      $reply = "false";
+      $retweet = "false";
     }
     $current_time = time();
     if (getHashtags($_POST['content']) == false){
@@ -95,7 +95,7 @@
         ':author' => $_SESSION['user']['username'],
         ':content' => $legit_content,
         ':timestamp' => $current_time,
-        ':reply' => $reply,
+        ':retweet' => $retweet,
         ':hashtag' => $hashtag_final,
         ':liked' => $_SESSION['user']['username']
     );
@@ -105,14 +105,14 @@
             author,
             content,
             timestamp,
-            reply,
+            retweet,
             hashtag,
             liked
         ) VALUES (
             :author,
             :content,
             :timestamp,
-            :reply,
+            :retweet,
             :hashtag,
             :liked
         )
