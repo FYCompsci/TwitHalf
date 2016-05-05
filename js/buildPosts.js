@@ -40,8 +40,14 @@ function buildPosts(username,hashtag){
     else{
       hashtag_label = "";
     }
-
-    bar = '<span class="fa fa-heart-o"></span>  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
+    bar = '';
+    if ($.inArray(hashtag, arr[i][6].split(",")) > -1){
+      bar = bar + '<span class="fa fa-heart" style="color:red;"></span>'
+    }
+    else{
+      bar = bar + '<span class="fa fa-heart-o" style="color:red;"></span>'
+    }
+    bar = bar + '  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
     if (arr[i][1] == page_username || infoData['admin'] == 1){
       bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }
