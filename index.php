@@ -20,7 +20,10 @@
 	</head>
 	<body>
 		<?php include_once ('navbar.php'); ?>
-      <div class="container">
+    <div class="container">
+				<div class="alert alert-info" role="alert">
+				  <strong>Heads up!</strong> We deleted all the users (and posts soon) from the website. You'll need to register again. Sorry for the inconvenience.
+				</div>
       <div class="row">
         <div class="col-sm-7">
 					<h1>welcome to:</h1>
