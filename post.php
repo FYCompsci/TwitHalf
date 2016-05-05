@@ -30,6 +30,55 @@
     header("Location: home.php?alert=delete");
     die("Redirecting to home.php?alert=delete");
   }
+  else if (isset($_GET['like'])){
+    $query = "
+        SELECT
+            1
+        FROM users
+        WHERE
+            id = :id
+    ";
+
+    $query_params = array(
+        ':id' => $_GET['like']
+    );
+
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
+    }
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+
+    $row = $stmt->fetch();
+
+    if($row)
+    {
+        $likers = $row['liked'];
+    }
+    $query = "
+      UPDATE posts SET liked=:likers WHERE id:post;
+    ";
+    $query_params = array(
+      ':post' => $_GET['like'],
+      ':likers' => $likers.$_SESSION['user']['username']
+    );
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
+    }
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+
+    header("Location: home.php?alert=like");
+    die("Redirecting to home.php?alert=like");
+  }
   else if(!empty($_POST))
   {
     if (isset($_GET['reply'])){
