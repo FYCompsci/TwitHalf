@@ -47,6 +47,7 @@
         </br>
         <input class="btn btn-primary-outline" type="submit" value="Login" />
       </form>
+			<h4>Don't have an account? <a href="index.php">Register Here.</a></h4>
     </div>
     <?php include_once ('footer.php'); ?>
     <script src="js/jquery2.min.js"></script>
