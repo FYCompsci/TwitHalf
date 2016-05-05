@@ -32,6 +32,8 @@
           <div class="col-sm-4">
             <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png" alt="The drones bees are almost done their work!">
             <h1>@<?php echo $page_username; ?></h1>
+						<h3>Bio:</h3>
+						<div id="bio-container"></div>
       			<h4>Here's what they've been <b>buzzing about.</b></h4>
           </div>
           <div class="col-sm-8">
@@ -53,6 +55,8 @@
 							$(this).html(linkUsernames($(this).html()));
 					});
 			});
+			var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
+			$("#bio-container").html(infoData["bio"]);
 		</script>
   </body>
 </html>
