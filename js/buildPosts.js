@@ -7,8 +7,6 @@ function httpGet(theUrl){
   xmlHttp.send( null );
   return xmlHttp.responseText;
 }
-var feedData = JSON.parse(httpGet("feed.php"));
-var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
 function compareTimestamp(a,b) {
   if (a[3] < b[3])
     return 1;
@@ -18,6 +16,8 @@ function compareTimestamp(a,b) {
     return 0;
 }
 function buildPosts(username,hashtag){
+  var feedData = JSON.parse(httpGet("feed.php"));
+  var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
   for (var key in feedData){
     if (feedData[key][1] == username || username == "all"){
