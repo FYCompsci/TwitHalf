@@ -75,7 +75,7 @@
     header("Location: home.php?alert=like");
     die("Redirecting to home.php?alert=like");
   }
-  else if (isset($_GET['unlikelike'])){
+  else if (isset($_GET['unlike'])){
     $query = "
         SELECT * FROM posts WHERE id=:id
     ";
@@ -118,8 +118,8 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: home.php?alert=like");
-    die("Redirecting to home.php?alert=like");
+    header("Location: home.php?alert=unlike");
+    die("Redirecting to home.php?alert=unlike");
   }
   else if(!empty($_POST))
   {

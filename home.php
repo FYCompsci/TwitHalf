@@ -94,6 +94,11 @@
         $('#home-alert').addClass("in");
         $('#home-alert-content').html("You just <strong>successfuly</strong> liked a post.");
       }
+			else if ("<?php echo $action; ?>" == "unlike"){
+        $('#home-alert').addClass("alert-info");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("You just <strong>successfuly</strong> unliked a post.");
+      }
       else{
         $('#home-alert').addClass("alert-success");
         $('#home-alert').addClass("in");
