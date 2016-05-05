@@ -32,11 +32,7 @@
   }
   else if (isset($_GET['like'])){
     $query = "
-        SELECT
-            1
-        FROM users
-        WHERE
-            id = :id
+        SELECT * FROM posts WHERE id=:id
     ";
 
     $query_params = array(
