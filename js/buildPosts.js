@@ -43,7 +43,7 @@ function buildPosts(username,hashtag){
 
     bar = '<span class="fa fa-heart-o"></span>  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
     if (arr[i][1] == page_username || infoData['admin'] == 1){
-      bar = bar + '  <span class="fa fa-close"></span>';
+      bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }
     bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
 
