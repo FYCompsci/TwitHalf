@@ -1,12 +1,17 @@
 <?php
-session_start();
-if (isset($_GET['hashtag'])){
-  $page_hashtag = $_GET['hashtag'];
-}
-else{
-  header("Location: index.php");
-  die("Redirecting to index.php");
-}
+	require("common.php");
+	if(empty($_SESSION['user'])){
+		header("Location: index.php");
+		die("Redirecting to index.php");
+	}
+  session_start();
+  if (isset($_GET['hashtag'])){
+    $page_hashtag = $_GET['hashtag'];
+  }
+  else{
+    header("Location: index.php");
+    die("Redirecting to index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

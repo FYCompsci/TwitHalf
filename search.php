@@ -1,11 +1,15 @@
 <?php
-session_start();
-if (isset($_GET['searchType'])){
-  $page_searchType = $_GET['searchType'];
-}
-else{
-	$page_searchType = "user";
-}
+	require("common.php");
+	if(empty($_SESSION['user'])){
+		header("Location: index.php");
+		die("Redirecting to index.php");
+	}
+  if (isset($_GET['searchType'])){
+    $page_searchType = $_GET['searchType'];
+  }
+  else{
+  	$page_searchType = "user";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

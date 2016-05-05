@@ -1,12 +1,16 @@
 <?php
-session_start();
-if (isset($_GET['username'])){
-  $page_username = $_GET['username'];
-}
-else{
-  header("Location: search.php");
-  die("Redirecting to search.php");
-}
+	require("common.php");
+	if(empty($_SESSION['user'])){
+		header("Location: index.php");
+		die("Redirecting to index.php");
+	}
+  if (isset($_GET['username'])){
+    $page_username = $_GET['username'];
+  }
+  else{
+    header("Location: search.php");
+    die("Redirecting to search.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
