@@ -42,7 +42,7 @@ function buildPosts(username,hashtag){
     }
     bar = '';
     if ($.inArray(page_username, arr[i][6].split(",")) > -1){
-      bar = bar + '<span class="fa fa-heart" style="color:red;"></span>';
+      bar = bar + '<span class="fa fa-heart" style="color:red;"></span><span style="color:red;"' + arr[i][6].split(",").length + '</span>';
     }
     else{
       bar = bar + '<a href="post.php?like=' + arr[i][0] +'"><span class="fa fa-heart-o" style="color:red;"></span></a>';
