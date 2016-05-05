@@ -4,6 +4,12 @@
 		header("Location: index.php");
 		die("Redirecting to index.php");
 	}
+	if (isset($_GET['alert'])){
+    $action = $_GET['alert'];
+  }
+  else{
+    $action = "default";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +29,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <div class="alert alert-success alert-dismissable fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span class="fa fa-close"></span>
-             </button>
-            Welcome back <strong><?php echo $_SESSION['user']['username']; ?></strong>! Here's your latest honeycombs.
-          </div>
+					<div class="alert alert-dismissable fade" role="alert" id="home-alert">
+		        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		          <span class="fa fa-close"></span>
+		         </button>
+		        <div id="home-alert-content">
+		        </div>
+		      </div>
           <div class="card card-inverse bg-warning">
             <form action="post.php" method="post">
               <div class="card-block">
@@ -77,6 +84,16 @@
 						$(this).html(linkUsernames($(this).html()));
 				});
 			});
+			if ("<?php echo $action; ?>" == "delete"){
+        $('#home-alert').addClass("alert-info");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("You just <strong>successfuly</strong> deleted a post.");
+      }
+      else if ("<?php echo $action; ?>" == "default"){
+        $('#home-alert').addClass("alert-success");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
+      }
 			/*
 			function clearTextBox(container){
 				$(container).attr("value", "");

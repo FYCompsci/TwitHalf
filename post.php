@@ -27,8 +27,8 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: home.php");
-    die("Redirecting to home.php");
+    header("Location: home.php?alert=delete");
+    die("Redirecting to home.php?alert=delete");
   }
   else if(!empty($_POST))
   {
