@@ -65,6 +65,7 @@
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
 		<script>
+      var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			var searchType = "<?php echo $page_searchType; ?>";
 			$("#searchType-" + searchType).addClass("active");
 			function search(){

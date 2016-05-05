@@ -31,6 +31,7 @@
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
 		<script>
+			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			$( document ).ready(function() {
 					buildPosts("all", "all");
 					$('.card').each(function() {

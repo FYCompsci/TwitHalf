@@ -1,8 +1,6 @@
 hashtag_regexp = /#([a-zA-Z0-9]+)/g;
 username_regexp = /@([a-zA-Z0-9]+)/g;
 
-var page_username = "<?php echo $_SESSION['user']['username']; ?>";
-
 function httpGet(theUrl){
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", theUrl, false );
