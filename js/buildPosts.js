@@ -41,7 +41,7 @@ function buildPosts(username,hashtag){
       hashtag_label = "";
     }
     bar = '';
-    if ($.inArray(hashtag, arr[i][6].split(",")) > -1){
+    if ($.inArray(page_username, arr[i][6].split(",")) > -1){
       bar = bar + '<span class="fa fa-heart" style="color:red;"></span>'
     }
     else{
