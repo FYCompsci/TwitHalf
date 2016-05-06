@@ -86,7 +86,7 @@
 			if ("<?php echo $page_action; ?>" != "none" ){
         $('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
-        $('#user-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong>" + pageuser + ".");
+        $('#user-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong> " + pageuser + ".");
 			}
 			else{
 				$('#user-alert').addClass("alert-success");
