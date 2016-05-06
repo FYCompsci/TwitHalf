@@ -89,7 +89,7 @@
 			else{
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
 			}
-			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b>Following</h6>");
+			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");
 			if ("<?php echo $page_action; ?>" != "none" ){
         $('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
