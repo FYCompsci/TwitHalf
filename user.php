@@ -11,6 +11,12 @@
     header("Location: search.php");
     die("Redirecting to search.php");
   }
+	if (isset($_GET['action'])){
+    $page_action = $_GET['action'];
+  }
+	else{
+		$page_action = "none";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +34,13 @@
 	<body>
 		<?php include_once ('navbar.php'); ?>
       <div class="container">
+				<div class="alert alert-dismissable fade" role="alert" id="user-alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span class="fa fa-close"></span>
+					 </button>
+					<div id="user-alert-content">
+					</div>
+				</div>
         <div class="row">
           <div class="col-sm-4">
             <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png" alt="The drones bees are almost done their work!">
@@ -37,7 +50,6 @@
 						<div id="bio-container"></div>
           </div>
           <div class="col-sm-8">
-						<h4>Here's what they've been <b>buzzing about.</b></h4>
             <div id="feed-container">
           </div>
         </div>
@@ -70,6 +82,16 @@
 			}
 			else{
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
+			}
+			if ("<?php echo $page_action; ?>" != "none" ){
+        $('#home-alert').addClass("alert-info");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong>" + pageuser + ".");
+			}
+			else{
+				$('#home-alert').addClass("alert-success");
+        $('#home-alert').addClass("in");
+        $('#home-alert-content').html("Welcome to " + pageuser + "'s page! Here's what they've been buzzing about.");
 			}
 		</script>
   </body>
