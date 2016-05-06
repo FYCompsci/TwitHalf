@@ -90,7 +90,7 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: user.php?username=".$_GET['follow']."&action=unfollow");
-    die("Redirecting to user.php?username=".$_GET['follow']."&action=unfollow");
+    header("Location: user.php?username=".$_GET['unfollow']."&action=unfollow");
+    die("Redirecting to user.php?username=".$_GET['unfollow']."&action=unfollow");
   }
 ?>
