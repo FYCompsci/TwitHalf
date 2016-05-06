@@ -77,7 +77,6 @@
 		<script src="js/buildPosts.js"></script>
 		<script>
 			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
-			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			$( document ).ready(function() {
 				buildPosts("all", "all", 1);
 				$('.card').each(function() {
@@ -85,6 +84,7 @@
 						$(this).html(linkUsernames($(this).html()));
 				});
 			});
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			if ("<?php echo $action; ?>" == "delete"){
         $('#home-alert').addClass("alert-info");
         $('#home-alert').addClass("in");
