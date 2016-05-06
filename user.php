@@ -76,7 +76,7 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
+			        <button type="submit" class="btn btn-primary">Save changes</button>
 			      </div>
 				</form>
 		    </div>
@@ -112,7 +112,7 @@
 				$("#submitTextarea").val(infoData["bio"]);
 			}
 			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");
-			if("<?php echo $page_action; ?>" != "none" ){
+			if("<?php echo $page_action; ?>" == "bio" ){
 				$('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
         $('#user-alert-content').html("You just successfuly <strong>updated your bio</strong>.");
