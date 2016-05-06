@@ -41,11 +41,11 @@
         <div class="col-sm-5">
           <h2><span class="fa fa-user-plus"></span> Register</h2>
           <form action="register.php" method="post">
-            Username: <input class="form-control" type="text" name="username" value="" id='reg-username' />
+            Username: <input class="form-control" type="text" name="username" value="" id='reg-username' required=""/>
 						</br>
-            Email: <input class="form-control" type="text" name="email" value="" />
+            Email: <input class="form-control" type="text" name="email" value="" required=""/>
 						</br>
-            Password: <input class="form-control" type="password" name="password" value="" />
+            Password: <input class="form-control" type="password" name="password" value="" required=""/>
 						</br>
             <input class="btn btn-primary-outline" type="submit" value="Register" />
           </form>
