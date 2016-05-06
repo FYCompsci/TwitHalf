@@ -42,8 +42,8 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: user.php?username=".$_GET['follow']."?action=follow");
-    die("Redirecting to user.php?username=".$_GET['follow']."?action=follow");
+    header("Location: user.php?username=".$_GET['follow']."&action=follow");
+    die("Redirecting to user.php?username=".$_GET['follow']."&action=follow");
   }
   else if (isset($_GET['unfollow'])){
     $query = "
@@ -90,7 +90,7 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: user.php?username=".$_GET['follow']."?action=unfollow");
-    die("Redirecting to user.php?username=".$_GET['follow']."?action=unfollow");
+    header("Location: user.php?username=".$_GET['follow']."&action=unfollow");
+    die("Redirecting to user.php?username=".$_GET['follow']."&action=unfollow");
   }
 ?>
