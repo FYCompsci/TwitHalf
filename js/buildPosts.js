@@ -15,14 +15,24 @@ function compareTimestamp(a,b) {
   else
     return 0;
 }
-function buildPosts(username,hashtag){
+function buildPosts(username,hashtag,following){
+  following = following || 0;
   var feedData = JSON.parse(httpGet("feed.php"));
   var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
-  for (var key in feedData){
-    if (feedData[key][1] == username || username == "all"){
-      if ($.inArray(hashtag, feedData[key][5].split(",")) > -1 || hashtag == "all"){
+  if (following != 0){
+    for (var key in feedData){
+      if ($.inArray(feedData[key][1], feedData[key][5].split(",")) > -1 || hashtag == "all"){
         arr.push(feedData[key]);
+      }
+    }
+  }
+  else{
+    for (var key in feedData){
+      if (feedData[key][1] == username || username == "all"){
+        if ($.inArray(hashtag, infoData["following"].split(",")) > -1){
+          arr.push(feedData[key]);
+        }
       }
     }
   }
@@ -52,8 +62,6 @@ function buildPosts(username,hashtag){
       bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }
     bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
-
-
 
     $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text">'+bar+'</p></div></div></div></div>');
     /*
