@@ -55,7 +55,8 @@
 							$(this).html(linkUsernames($(this).html()));
 					});
 			});
-			var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
+			var pageuser = "<?php echo $page_username; ?>";
+			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
 			$("#bio-container").html(infoData["bio"]);
 		</script>
   </body>
