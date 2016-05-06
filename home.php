@@ -77,6 +77,7 @@
 		<script src="js/buildPosts.js"></script>
 		<script>
 			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			$( document ).ready(function() {
 				buildPosts("all", "all", 1);
 				$('.card').each(function() {
@@ -100,6 +101,11 @@
         $('#home-alert-content').html("You just <strong>successfuly</strong> unliked a post.");
       }
       else{
+				if (userInfoData["following"].length <= 3){
+					$('#home-alert').addClass("alert-success");
+					$('#home-alert').addClass("in");
+					$('#home-alert-content').html("<strong>Welcome!</strong> You should follow some people! Check out the <a class='alert-link' href='new.php'>new page</a> to find some people to follow!");
+				}
         $('#home-alert').addClass("alert-success");
         $('#home-alert').addClass("in");
         $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
