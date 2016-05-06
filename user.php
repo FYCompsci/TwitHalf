@@ -84,14 +84,14 @@
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
 			}
 			if ("<?php echo $page_action; ?>" != "none" ){
-        $('#home-alert').addClass("alert-info");
-        $('#home-alert').addClass("in");
-        $('#home-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong>" + pageuser + ".");
+        $('#user-alert').addClass("alert-info");
+        $('#user-alert').addClass("in");
+        $('#user-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong>" + pageuser + ".");
 			}
 			else{
-				$('#home-alert').addClass("alert-success");
-        $('#home-alert').addClass("in");
-        $('#home-alert-content').html("Welcome to " + pageuser + "'s page! Here's what they've been buzzing about.");
+				$('#user-alert').addClass("alert-success");
+        $('#user-alert').addClass("in");
+        $('#user-alert-content').html("Welcome to " + pageuser + "'s page! Here's what they've been buzzing about.");
 			}
 		</script>
   </body>
