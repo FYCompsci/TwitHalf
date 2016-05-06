@@ -61,6 +61,27 @@
         </div>
 			</div>
     </div>
+		<div class="modal fade" id="bioModal" tabindex="-1" role="dialog" aria-labelledby="bioModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		        <h4 class="modal-title" id="bioModalLabel">Edit your bio!</h4>
+		      </div>
+					<form action="bio.php" method="post">
+			      <div class="modal-body">
+			        <textarea class="form-control" id="submitTextarea" name="content" rows="3" required="" placeholder="Tell us about yourself!" maxlength="256"></textarea>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>
+				</form>
+		    </div>
+		  </div>
+		</div>
     <?php include_once ('footer.php'); ?>
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -87,10 +108,16 @@
 				}
 			}
 			else{
-				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
+				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#' data-toggle='modal' data-target='#bioModal'><span class='fa fa-edit'></span> Edit Bio</a>");
+				$("#submitTextarea").val(infoData["bio"]);
 			}
 			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");
-			if ("<?php echo $page_action; ?>" != "none" ){
+			if("<?php echo $page_action; ?>" != "none" ){
+				$('#user-alert').addClass("alert-info");
+        $('#user-alert').addClass("in");
+        $('#user-alert-content').html("You just successfuly <strong>updated your bio</strong>.");
+			}
+			else if ("<?php echo $page_action; ?>" != "none" ){
         $('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
         $('#user-alert-content').html("You just successfuly <strong><?php echo $page_action; ?>ed</strong> " + pageuser + ".");
