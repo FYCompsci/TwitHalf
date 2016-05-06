@@ -22,7 +22,7 @@ function buildPosts(username,hashtag,following){
   var arr = [];
   if (following != 0){
     for (var key in feedData){
-      if ($.inArray(feedData[key][1], feedData[key][5].split(",")) > -1 || hashtag == "all"){
+      if ($.inArray(feedData[key][1], infoData["following"].split(",")) > -1){
         arr.push(feedData[key]);
       }
     }
@@ -30,7 +30,7 @@ function buildPosts(username,hashtag,following){
   else{
     for (var key in feedData){
       if (feedData[key][1] == username || username == "all"){
-        if ($.inArray(hashtag, infoData["following"].split(",")) > -1){
+        if ($.inArray(hashtag, feedData[key][5].split(",")) > -1 || hashtag == "all"){
           arr.push(feedData[key]);
         }
       }
