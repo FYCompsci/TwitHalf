@@ -58,9 +58,15 @@
 			});
 			var pageuser = "<?php echo $page_username; ?>";
 			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			$("#bio-container").html(infoData["bio"]);
 			if (pageuser != page_username){
-				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?follow="+pageuser+"'><span class='fa fa-plus'></span> Follow " + pageuser + "</a>");
+				if ($.inArray(pageuser, userInfoData['following'].split(",")) > -1 ){
+					$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?unfollow="+pageuser+"'><span class='fa fa-check'></span> Following " + pageuser + "</a>");
+				}
+				else{
+					$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?follow="+pageuser+"'><span class='fa fa-plus'></span> Follow " + pageuser + "</a>");
+				}
 			}
 			else{
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
