@@ -35,9 +35,9 @@
 						<div id="action-container"></div>
 						<h3>Bio:</h3>
 						<div id="bio-container"></div>
-      			<h4>Here's what they've been <b>buzzing about.</b></h4>
           </div>
           <div class="col-sm-8">
+						<h4>Here's what they've been <b>buzzing about.</b></h4>
             <div id="feed-container">
           </div>
         </div>
@@ -60,7 +60,7 @@
 			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
 			$("#bio-container").html(infoData["bio"]);
 			if (pageuser != page_username){
-				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-plus'></span> Follow " + pageuser + "</a>");
+				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?follow="+pageuser+"'><span class='fa fa-plus'></span> Follow " + pageuser + "</a>");
 			}
 			else{
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
