@@ -23,11 +23,11 @@
           <a class="dropdown-toggle btn btn-secondary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-sign-in"></span> Login to your Beehive</a>
           <div class="dropdown-menu dropdown-menu-right" style="padding:5px;">
             <form action="login.php" method="post">
-              Email: <input type="text" class="form-control" name="email" value="" />
+              Email: <input type="text" class="form-control" name="email" value="" required=""/>
               </br>
-              Password: <input type="password" class="form-control" name="password" value="" />
+              Password: <input type="password" class="form-control" name="password" value="" required=""/>
               </br>
-              <input class="btn btn-primary-outline" type="submit" value="Login" />
+              <input class="btn btn-primary-outline" type="submit" value="Login" required=""/>
             </form>
           </div>
         </li>

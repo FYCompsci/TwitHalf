@@ -38,10 +38,10 @@
       <form action="login.php" method="post">
         <div class="row">
           <div class="col-sm-6">
-            Email: <input type="text" class="form-control" name="email" value="" />
+            Email: <input type="text" class="form-control" name="email" value="" required=""/>
           </div>
           <div class="col-sm-6">
-            Password: <input type="password" class="form-control" name="password" value="" />
+            Password: <input type="password" class="form-control" name="password" value="" required=""/>
           </div>
         </div>
         </br>
