@@ -102,15 +102,15 @@
       }
       else{
 				if (userInfoData['following'] == page_username){
-					console.log(userInfoData['following']);
-					console.log(page_username);
 					$('#home-alert').addClass("alert-success");
 					$('#home-alert').addClass("in");
 					$('#home-alert-content').html("<strong>Welcome!</strong> You should follow some people! Check out the <a class='alert-link' href='new.php'>new page</a> to find some people to follow!");
 				}
-        $('#home-alert').addClass("alert-success");
-        $('#home-alert').addClass("in");
-        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
+				else{
+	        $('#home-alert').addClass("alert-success");
+	        $('#home-alert').addClass("in");
+	        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
+				}
       }
 			/*
 			function clearTextBox(container){
