@@ -45,6 +45,12 @@
           <div class="col-sm-4">
             <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/256/<?php echo $page_username ?>.png" alt="The drones bees are almost done their work!">
             <h1>@<?php echo $page_username; ?></h1>
+						<div class="row">
+							<div class="col-sm-6" id="page-following">
+							</div>
+							<div class="col-sm-6" id="page-followers">
+							</div>
+						</div>
 						<div id="action-container"></div>
 						<h3>Bio:</h3>
 						<div id="bio-container"></div>
@@ -83,6 +89,7 @@
 			else{
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#'><span class='fa fa-edit'></span> Edit Bio</a>");
 			}
+			$("#page-following").html("<b>" + infoData['following'].split(",").length + "</b><h6>Following</h6>");
 			if ("<?php echo $page_action; ?>" != "none" ){
         $('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
