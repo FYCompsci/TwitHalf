@@ -112,6 +112,7 @@
 				$("#submitTextarea").val(infoData["bio"]);
 			}
 			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");
+			$("#page-followers").html("<h6><b>" + infoData['followers'].split(",").length + "</b> <small>Followers</small></h6>");
 			if("<?php echo $page_action; ?>" == "bio" ){
 				$('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");
