@@ -24,7 +24,7 @@
             WHERE
                 username = :username
         ";
-        $legit_username = preg_replace('/\s+/', '', $_POST['username']);
+        $legit_username = preg_replace('/[^a-zA-Z0-9]+/', '', $_POST['username']);
 
         $query_params = array(
             ':username' => $legit_username
