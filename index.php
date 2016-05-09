@@ -27,10 +27,13 @@
           <h1 class="display-1"><b>The Buzz.</b></h1>
           <h4>an open source social network designed for coders, designers, bugfixers, and everything in between</h4>
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<a class="btn btn-secondary btn-block" href="about.php"><span class="fa fa-book"></span> Learn about The Buzz</a>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
+							<a class="btn btn-secondary btn-block" href="team.php"><span class="fa fa-users"></span> Learn about the Team</a>
+						</div>
+						<div class="col-sm-4">
 							<a class="btn btn-secondary btn-block" href="https://github.com/FYCompsci/TwitHalf"><span class="fa fa-github"></span> View on GitHub</a>
 						</div>
 					</div>
