@@ -24,12 +24,14 @@
     if($row)
     {
         $following = $row['following'];
+        $followers = $row['followers'] + 1;
     }
     $query = "
       UPDATE info SET following=:following WHERE username=:username
     ";
     $query_params = array(
       ':following' => $following.",".$_GET['follow'],
+      ':followers' => $followers,
       ':username' => $_SESSION['user']['username']
     );
     try
@@ -69,6 +71,7 @@
     if($row)
     {
         $following = $row['following'];
+        $followers = $row['followers'] -1;
     }
     $comma_string = ",".$_GET['unfollow'];
     $following = str_replace($comma_string, '', $following);
@@ -78,6 +81,7 @@
     ";
     $query_params = array(
       ':following' => $following,
+      ':followers' => $followers,
       ':username' => $_SESSION['user']['username']
     );
     try
