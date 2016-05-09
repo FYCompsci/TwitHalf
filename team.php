@@ -32,14 +32,14 @@
         </div>
         <div class="col-sm-4">
           <blockquote class="blockquote">
-            The Buzz is a work of <span class="fa fa-heart" style="color:red;"></span> love <span class="fa fa-heart" style="color:red;"></span> made by The Buzz team. We work hard to make sure that The Buzz becomes the best social network it can <b>bee</b>, and to make sure that everything is in tip top shape!
+            The Buzz is a work of love made by The Buzz team. We work hard to make sure that The Buzz becomes the best social network it can <b>bee</b>!
           </blockquote>
         </div>
       </div>
       <div class="row">
 				<div class="col-sm-4">
 					<blockquote class="blockquote blockquote-reverse">
-          	The Buzz is made in PHP, HTML, CSS, and JavaScript, and relies on a few awesome libraries (namely Bootstrap and Font-Awesome). Without those frameworks, we wouldn't be here today!
+          	The Buzz is made in PHP, HTML, CSS, and JavaScript, and relies on a few awesome libraries (namely Bootstrap and Font-Awesome).
           </blockquote>
 				</div>
         <div class="col-sm-8">
@@ -76,7 +76,7 @@
         </div>
 				<div class="col-sm-4">
           <blockquote class="blockquote">
-            Thanks for using The Buzz! You can <i>buzz<i> about our team with the hashtag <a href="hashtag.php?hashtag=#TheBuzz">#TheBuzz</a>!
+            Thanks for using The Buzz! You can <i>buzz</i> about our team with the hashtag <a href="hashtag.php?hashtag=#TheBuzz">#TheBuzz</a>!
           </blockquote>
         </div>
       </div>
