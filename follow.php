@@ -27,7 +27,7 @@
         $followers = $row['followers'] + 1;
     }
     $query = "
-      UPDATE info SET following=:following WHERE username=:username
+      UPDATE info SET following=:following,followers=:followers WHERE username=:username
     ";
     $query_params = array(
       ':following' => $following.",".$_GET['follow'],
@@ -77,7 +77,7 @@
     $following = str_replace($comma_string, '', $following);
     $following = str_replace($_GET['unfollow'], '', $following);
     $query = "
-      UPDATE info SET following=:following WHERE username=:username
+      UPDATE info SET following=:following,followers=:followers WHERE username=:username
     ";
     $query_params = array(
       ':following' => $following,
