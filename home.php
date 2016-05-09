@@ -46,7 +46,7 @@
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
 										</br>
-										<span id="textarea-count">256</span>
+										<div id="textarea-count">256</div>
                     <!--<button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>-->
                   </div>
                 </div>
@@ -85,6 +85,11 @@
 						$(this).html(linkHashtags($(this).html()));
 						$(this).html(linkUsernames($(this).html()));
 				});
+				$('#submitTextarea').keyup(function() {
+	        var text_length = $('#submitTextarea').val().length;
+					var text_left = 256 - text_length;
+	        $('#textarea-count').html(text_left);
+	    	});
 			});
 			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			if ("<?php echo $action; ?>" == "delete"){
@@ -114,10 +119,6 @@
 	        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
 				}
       }
-			$('#submitTextarea').keyup(function() {
-        var text_length = $('#submitTextarea').val().length;
-        $('#textarea-count').html(256 - text_length);
-    	});
 			/*
 			function clearTextBox(container){
 				$(container).attr("value", "");
