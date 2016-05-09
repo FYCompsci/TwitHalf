@@ -45,6 +45,8 @@
                   </div>
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
+										</br>
+										<span id="textarea-count">256</span>
                     <!--<button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>-->
                   </div>
                 </div>
@@ -112,6 +114,10 @@
 	        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
 				}
       }
+			$('#submitTextarea').keyup(function() {
+        var text_length = $('#submitTextarea').val().length;
+        $('#textarea-count').html(256 - text_length);
+    	});
 			/*
 			function clearTextBox(container){
 				$(container).attr("value", "");
