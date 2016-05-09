@@ -121,11 +121,13 @@
                 username,
                 admin,
                 following,
+                followers,
                 bio
             ) VALUES (
                 :username,
                 :admin,
                 :following,
+                :followers,
                 :bio
             )
         ";
@@ -134,6 +136,7 @@
             ':username' => $legit_username,
             ':admin' => 0,
             ':following' => $legit_username,
+            ':followers' => 0,
             ':bio' => "Hey, it's ".$legit_username."!"
         );
 
