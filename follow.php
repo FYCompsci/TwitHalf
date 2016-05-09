@@ -42,6 +42,10 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
+    $query = "
+        SELECT * FROM info WHERE username=:username
+    ";
+
     $query_params = array(
         ':username' => $_GET['follow']
     );
@@ -126,6 +130,10 @@
     {
         die("Failed to run query: " . $ex->getMessage());
     }
+
+    $query = "
+        SELECT * FROM info WHERE username=:username
+    ";
 
     $query_params = array(
         ':username' => $_GET['unfollow']
