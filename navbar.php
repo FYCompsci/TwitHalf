@@ -17,6 +17,9 @@
           <a class="dropdown-item" href="search.php"><span class="fa fa-search"></span> Search</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="team.php">Team</a>
+      </li>
       <?php if(empty($_SESSION['user'])){ ?>
       <div class="full-nav">
         <li class="nav-item dropdown pull-xs-right">
