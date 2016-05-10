@@ -64,8 +64,8 @@
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
-		<script src="linkify.min.js"></script>
-		<script src="linkify-jquery.min.js"></script>
+		<script src="js/linkify.min.js"></script>
+		<script src="js/linkify-jquery.min.js"></script>
 		<script>
       var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			var searchType = "<?php echo $page_searchType; ?>";
