@@ -52,7 +52,7 @@ function buildPosts(username,hashtag,following){
     }
     retweet = "";
     if (arr[i][4] != "false"){
-      console.log("retweet");
+      retweet = retweet + '<p class="card-text text-muted"><span class="fa fa-retweet" style="color:green;"></span> rebuzzed @' + arr[i][1] + '</p>';
     }
     bar = '';
     if ($.inArray(page_username, arr[i][6].split(",")) > -1){
@@ -67,7 +67,7 @@ function buildPosts(username,hashtag,following){
     }
     bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
 
-    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text">'+bar+'</p></div></div></div></div>');
+    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10">' + retweet + '<h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text">'+bar+'</p></div></div></div></div>');
     /*
     Here's the non-minified version of the template of each "buzz". Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
     <div class="card">
