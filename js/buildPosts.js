@@ -15,7 +15,16 @@ function compareTimestamp(a,b) {
   else
     return 0;
 }
-function buildPosts(username,hashtag,following){
+function compareLikes(a,b){
+  if (a[6].split(",").length < b[6].split(",").length)
+    return 1;
+  else if (a[6].split(",").length > b[6].split(",").length)
+    return -1;
+  else
+    return 0;
+}
+function buildPosts(username,hashtag,method,following){
+  method = method || "time";
   following = following || 0;
   var feedData = JSON.parse(httpGet("feed.php"));
   var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
@@ -36,7 +45,12 @@ function buildPosts(username,hashtag,following){
       }
     }
   }
-  arr.sort(compareTimestamp);
+  if (method == "likes"){
+    arr.sort(compareLikes);
+  }
+  else{
+    arr.sort(compareTimestamp);
+  }
   for (var i=0; i<arr.length; i++) {
     date = new Date(arr[i][3]*1000);
     date = date.getFullYear() + "/" + (1 + Number(date.getMonth())) + "/" + date.getDate();
