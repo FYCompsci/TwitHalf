@@ -86,6 +86,8 @@
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/buildPosts.js"></script>
+		<script src="linkify.min.js"></script>
+		<script src="linkify-jquery.min.js"></script>
 		<script>
       var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			$( document ).ready(function() {
@@ -95,6 +97,7 @@
 							$(this).html(linkUsernames($(this).html()));
 					});
 			});
+			$('.card').linkify();
 			var pageuser = "<?php echo $page_username; ?>";
 			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
 			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
