@@ -52,7 +52,7 @@ function buildPosts(username,hashtag,following){
     }
     retweet = "";
     if (arr[i][4] != "false"){
-      retweet = retweet + '<p class="card-text text-muted"><span class="fa fa-retweet" style="color:green;"></span> rebuzzed @' + arr[i][1] + '</p>';
+      retweet = retweet + '<p class="card-text text-muted"><span class="fa fa-retweet" style="color:green;"></span> rebuzzed by @' + arr[i][4] + '</p>';
     }
     bar = '';
     if ($.inArray(page_username, arr[i][6].split(",")) > -1){
