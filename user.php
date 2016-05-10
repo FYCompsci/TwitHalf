@@ -96,8 +96,8 @@
 							$(this).html(linkHashtags($(this).html()));
 							$(this).html(linkUsernames($(this).html()));
 					});
+					$('.card').linkify();
 			});
-			$('.card').linkify();
 			var pageuser = "<?php echo $page_username; ?>";
 			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
 			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
