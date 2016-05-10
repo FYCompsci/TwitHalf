@@ -76,7 +76,7 @@ function buildPosts(username,hashtag,method,following){
       bar = bar + '<a href="post.php?like=' + arr[i][0] +'"><span class="fa fa-heart-o" style="color:red;"></span></a> <span style="color:red;">' + arr[i][6].split(",").length + '</span>';
     }
     bar = bar + '  <span class="fa fa-reply"></span>  <a href="post.php?retweet=' + arr[i][0] +'"><span class="fa fa-retweet"></span></a>';
-    if (arr[i][1] == page_username || infoData['admin'] == 1){
+    if (arr[i][1] == page_username || arr[i][4] == page_username || infoData['admin'] == 1){
       bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }
     bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
