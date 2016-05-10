@@ -20,16 +20,16 @@ function buildPosts(username,hashtag,following){
   var feedData = JSON.parse(httpGet("feed.php"));
   var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
-  if (following != 0){
+  if (following !== 0){
     for (var key in feedData){
-      if ($.inArray(feedData[key][1], infoData["following"].split(",")) > -1){
+      if ($.inArray(feedData[key][1], infoData["following"].split(",")) > -1 || $.inArray(feedData[key][4], infoData["following"].split(",")) > -1){
         arr.push(feedData[key]);
       }
     }
   }
   else{
     for (var key in feedData){
-      if (feedData[key][1] == username || username == "all"){
+      if (feedData[key][1] == username || feedData[key][4] == username || username == "all"){
         if ($.inArray(hashtag, feedData[key][5].split(",")) > -1 || hashtag == "all"){
           arr.push(feedData[key]);
         }
@@ -50,6 +50,10 @@ function buildPosts(username,hashtag,following){
     else{
       hashtag_label = "";
     }
+    retweet = "";
+    if (arr[i][4] != "false"){
+      console.log("retweet");
+    }
     bar = '';
     if ($.inArray(page_username, arr[i][6].split(",")) > -1){
       bar = bar + '<a href="post.php?unlike=' + arr[i][0] +'"><span class="fa fa-heart" style="color:red;"></span></a> <span style="color:red;">' + arr[i][6].split(",").length + '</span>';
@@ -57,7 +61,7 @@ function buildPosts(username,hashtag,following){
     else{
       bar = bar + '<a href="post.php?like=' + arr[i][0] +'"><span class="fa fa-heart-o" style="color:red;"></span></a> <span style="color:red;">' + arr[i][6].split(",").length + '</span>';
     }
-    bar = bar + '  <span class="fa fa-reply"></span>  <span class="fa fa-retweet"></span>';
+    bar = bar + '  <span class="fa fa-reply"></span>  <a href="post.php?retweet=' + arr[i][0] +'"><span class="fa fa-retweet"></span></a>';
     if (arr[i][1] == page_username || infoData['admin'] == 1){
       bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }

@@ -123,14 +123,68 @@
     header("Location: home.php?alert=unlike");
     die("Redirecting to home.php?alert=unlike");
   }
-  else if(!empty($_POST))
-  {
-    if (isset($_GET['retweet'])){
-      $retweet = $_GET['retweet'];
+  else if (isset($_GET['retweet'])){
+    $current_time = time();
+    $query = "
+        SELECT * FROM posts WHERE id=:id
+    ";
+
+    $query_params = array(
+        ':id' => $_GET['retweet']
+    );
+
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
     }
-    else{
-      $retweet = "false";
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
     }
+    $row = $stmt->fetch();
+    $query_params = array(
+        ':author' => $row['author'],
+        ':content' => $row['content'],
+        ':timestamp' => $current_time,
+        ':retweet' => $_SESSION['user']['username'],
+        ':hashtag' => $row['hashtag'],
+        ':liked' => $_SESSION['user']['username']
+    );
+
+    $query = "
+        INSERT INTO posts (
+            author,
+            content,
+            timestamp,
+            retweet,
+            hashtag,
+            liked
+        ) VALUES (
+            :author,
+            :content,
+            :timestamp,
+            :retweet,
+            :hashtag,
+            :liked
+        )
+    ";
+
+    try
+    {
+        $stmt = $db->prepare($query);
+        $result = $stmt->execute($query_params);
+    }
+    catch(PDOException $ex)
+    {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+
+    header("Location: home.php?alert=retweet");
+    die("Redirecting to home.php?alert=retweet");
+  }
+  else if(!empty($_POST)){
+    $retweet = "false";
     $current_time = time();
     if (getHashtags($_POST['content']) == false){
       $hashtag_final = "none";
@@ -176,7 +230,7 @@
         die("Failed to run query: " . $ex->getMessage());
     }
 
-    header("Location: home.php");
-    die("Redirecting to home.php");
+    header("Location: home.php?alert=post");
+    die("Redirecting to home.php?alert=post");
   }
 ?>
