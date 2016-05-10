@@ -82,7 +82,7 @@
 		<script>
 			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			$( document ).ready(function() {
-				buildPosts("all", "all", ,"time", 1);
+				buildPosts("all", "all","time", 1);
 				$('.card').each(function() {
 						$(this).html(linkHashtags($(this).html()));
 						$(this).html(linkUsernames($(this).html()));
