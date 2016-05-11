@@ -48,10 +48,10 @@ function buildUsers(username,method){
       console.log("Rendering!");
       if (arr[i]["username"] != page_username){
         if ($.inArray(arr[i]["username"], userInfoData['following'].split(",")) > -1 ){
-          fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?unfollow="+arr[i]["username"]+"'><span class='fa fa-check'></span> Following " + arr[i]["username"] + "</a>";
+          fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?unfollow="+arr[i]["username"]+"'><span class='fa fa-check'></span> Following</a>";
         }
         else{
-          fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?follow="+arr[i]["username"]+"'><span class='fa fa-plus'></span> Follow " + arr[i]["username"] + "</a>";
+          fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?follow="+arr[i]["username"]+"'><span class='fa fa-plus'></span> Follow</a>";
         }
       }
       else{
