@@ -7,6 +7,20 @@ function httpGet(theUrl){
   xmlHttp.send( null );
   return xmlHttp.responseText;
 }
+
+function linkHashtags(text) {
+    return text.replace(
+        hashtag_regexp,
+        '<a class="hashtag" href="hashtag.php?hashtag=$1">#$1</a>'
+    );
+}
+function linkUsernames(text) {
+    return text.replace(
+        username_regexp,
+        '<a href="user.php?username=$1">@$1</a>'
+    );
+}
+
 function compareTimestamp(a,b) {
   if (a[3] < b[3])
     return 1;
@@ -105,16 +119,4 @@ function buildPosts(username,hashtag,method,following){
     </div>
     */
   }
-}
-function linkHashtags(text) {
-    return text.replace(
-        hashtag_regexp,
-        '<a class="hashtag" href="hashtag.php?hashtag=$1">#$1</a>'
-    );
-}
-function linkUsernames(text) {
-    return text.replace(
-        username_regexp,
-        '<a class="hashtag" href="user.php?username=$1">@$1</a>'
-    );
 }

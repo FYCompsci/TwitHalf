@@ -39,16 +39,14 @@
 					</div>
 					</br>
 					<ul class="nav nav-pills nav-stacked">
-						<!--
 					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=all' id="searchType-all"><span class="fa fa-list-alt"></span> Search All</a>
-					  </li>
-						-->
-					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Search by User</a>
+					    <a class="nav-link" href='?searchType=users' id="searchType-users"><span class="fa fa-users"></span> Search Users</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href='?searchType=hashtag' id="searchType-hashtag"><span class="fa fa-hashtag"></span> Search by Hashtag</a>
+					    <a class="nav-link" href='?searchType=user' id="searchType-user"><span class="fa fa-user"></span> Search Buzzes by User</a>
+					  </li>
+					  <li class="nav-item">
+					    <a class="nav-link" href='?searchType=hashtag' id="searchType-hashtag"><span class="fa fa-hashtag"></span> Search Buzzes by Hashtag</a>
 					  </li>
 					</ul>
 				</div>
@@ -64,16 +62,18 @@
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 		<script src="js/buildPosts.js"></script>
+		<script src="js/buildUsers.js"></script>
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
       var page_username = "<?php echo $_SESSION['user']['username']; ?>";
 			var searchType = "<?php echo $page_searchType; ?>";
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
 			$("#searchType-" + searchType).addClass("active");
 			function search(){
 				$('#feed-container').html("");
 				var query = $('#searchBar').val();
-				if (searchType == "user"){
+				if (searchType == "user" || searchType == "users"){
 					if (query.charAt(0) == "@"){
 						query = query.substring(1);
 					}
@@ -83,7 +83,10 @@
 						query = "#" + query;
 					}
 				}
-				if (searchType == "user"){
+				if (searchType == "users"){
+					buildUsers(query);
+				}
+				else if (searchType == "user"){
 					buildPosts(query, "all");
 				}
 				else if (searchType == "hashtag"){
