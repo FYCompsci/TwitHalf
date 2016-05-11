@@ -26,6 +26,7 @@ function compareFollowers(a,b) {
 function buildUsers(username,method){
   method = method || "single";
   var infoData = JSON.parse(httpGet("info.php?user=" + username));
+  var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
   console.log(infoData);
   if (method == "single"){
