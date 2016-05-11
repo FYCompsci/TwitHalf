@@ -28,7 +28,7 @@ function buildUsers(username,method){
   var infoData = JSON.parse(httpGet("info.php?user=" + username));
   var arr = [];
 
-  if (method == single){
+  if (method == "single"){
     arr = infoData;
   }
   else{
