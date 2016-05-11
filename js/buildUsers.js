@@ -28,11 +28,11 @@ function buildUsers(username,method){
   var infoData = JSON.parse(httpGet("info.php?user=" + username));
   var arr = [];
 
-  for (var key in infoData){
-    if (infoData[key]["username"] == username || method != "single"){
-      arr.push(infoData[key]);
-      console.log("Match found!");
-    }
+  if (method == single){
+    arr = infoData;
+  }
+  else{
+    console.log("Coming soon!");
   }
 
   if (arr.length === 0){
