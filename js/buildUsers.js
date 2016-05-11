@@ -30,7 +30,8 @@ function buildUsers(username,method){
   var arr = [];
   console.log(infoData);
   if (method == "single"){
-    arr[0] = infoData;
+    temparr[0] = infoData;
+    arr.push(temparr);
     console.log(arr);
   }
   else{
