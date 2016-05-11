@@ -93,7 +93,7 @@ function buildPosts(username,hashtag,method,following){
     if (arr[i][1] == page_username || arr[i][4] == page_username || infoData['admin'] == 1){
       bar = bar + '  <a href="post.php?delete=' + arr[i][0] +'"><span class="fa fa-close" style="color:red;"></span></a>';
     }
-    bar = bar + '  <span class="fa fa-exclamation-triangle"></span>';
+    bar = bar + '  <a href="report.php?id=' + arr[i][0] + '"<span class="fa fa-exclamation-triangle" style="color:red;"></span></a>';
 
     $("#feed-container").append('<div class="card"><div class="card-block">' + retweet + '<div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><h4 class="card-title">@'+arr[i][1]+' <span class="text-muted"><small>'+date+'</small></span></h4><p class="card-text">'+arr[i][2]+ hashtag_label +'</p><p class="card-text">'+bar+'</p></div></div></div></div>');
     /*

@@ -38,7 +38,7 @@ function buildUsers(username,method){
   }
 
   if (arr.length === 0){
-    $("feed-container").html("This honeycomb is empty. Are you sure you searched for the right bee?")
+    $("feed-container").html("This honeycomb is empty. Are you sure you searched for the right bee?");
   }
   else{
     if (method == "followers"){
