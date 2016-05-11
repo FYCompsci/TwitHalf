@@ -29,7 +29,7 @@ function buildUsers(username,method){
   var arr = [];
 
   for (var key in infoData){
-    if (infoData[key][1] == username || method != "single"){
+    if (infoData[key]["username"] == username || method != "single"){
       arr.push(infoData[key]);
     }
   }
