@@ -46,33 +46,35 @@ function buildUsers(username,method){
         fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?follow="+arr[i][1]+"'><span class='fa fa-plus'></span> Follow " + arr[i][1] + "</a>";
       }
     }
+    else{
+      fbutton = "<a class='btn btn-block btn-info-outline' href='user.php?username="+page_username+"'>Queen Bee</a>";
+    }
     following = arr[i][3].split(",").length;
     followers = arr[i][4];
-    for (var i=0; i<arr.length; i++) {
-      $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><div class="row"><div class="col-sm-9"><h4 class="card-title">@'+arr[i][1]+'</h4><h6>' + following + ' Following, ' + followers + ' Followers</div><div class="col-sm-3">' + fbutton + '</div></div></div></div></div></div>');
-      /*
-      Here's the non-minified version of the template of each user. Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
-      <div class="card">
-        <div class="card-block">
-          <div class="row">
-            <div class="col-sm-2">
-              <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!">
-            </div>
-            <div class="col-sm-10">
-              <div class="row">
-                <div class="col-sm-9">
-                  <h4 class="card-title">@'+arr[i][1]+'</h4>
-                  <h6>' + following + ' Following, ' + followers + ' Followers
-                </div>
-                <div class="col-sm-3">
-                  ' + fbutton + '
-                </div>
+    $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><div class="row"><div class="col-sm-9"><h4 class="card-title">@'+arr[i][1]+'</h4><h6>' + following + ' Following, ' + followers + ' Followers</div><div class="col-sm-3">' + fbutton + '</div></div></div></div></div></div>');
+    /*
+    Here's the non-minified version of the template of each user. Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
+    <div class="card">
+      <div class="card-block">
+        <div class="row">
+          <div class="col-sm-2">
+            <img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i][1]+'.png" alt="The drones bees are almost done their work!">
+          </div>
+          <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="card-title">@'+arr[i][1]+'</h4>
+                <h6>' + following + ' Following, ' + followers + ' Followers
+              </div>
+              <div class="col-sm-3">
+                ' + fbutton + '
               </div>
             </div>
           </div>
         </div>
       </div>
-      */
-    }
+    </div>
+    */
+
   }
 }
