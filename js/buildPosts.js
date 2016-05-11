@@ -37,10 +37,10 @@ function compareLikes(a,b){
   else
     return 0;
 }
+var feedData = JSON.parse(httpGet("feed.php"));
 function buildPosts(username,hashtag,method,following){
   method = method || "time";
   following = following || 0;
-  var feedData = JSON.parse(httpGet("feed.php"));
   var infoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
   if (following !== 0){

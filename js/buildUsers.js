@@ -28,13 +28,8 @@ function buildUsers(username,method){
   var infoData = JSON.parse(httpGet("info.php?user=" + username));
   var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
   var arr = [];
-  console.log(infoData);
   if (method == "single"){
     arr[0] = infoData;
-    console.log(arr);
-  }
-  else{
-    console.log("Coming soon!");
   }
 
   if (arr.length === 0){
@@ -45,7 +40,6 @@ function buildUsers(username,method){
       arr.sort(compareFollowers);
     }
     for (var i=0; i<arr.length; i++) {
-      console.log("Rendering!");
       if (arr[i]["username"] != page_username){
         if ($.inArray(arr[i]["username"], userInfoData['following'].split(",")) > -1 ){
           fbutton = "<a class='btn btn-block btn-info-outline' href='follow.php?unfollow="+arr[i]["username"]+"'><span class='fa fa-check'></span> Following</a>";
@@ -59,7 +53,6 @@ function buildUsers(username,method){
       }
       following = arr[i]["following"].split(",").length;
       followers = arr[i]["followers"];
-      console.log("Printing!");
       $("#feed-container").append('<div class="card"><div class="card-block"><div class="row"><div class="col-sm-2"><img class="img-fluid img-thumbnail center-block" src="https://api.adorable.io/avatars/64/'+arr[i]["username"]+'.png" alt="The drones bees are almost done their work!"></div><div class="col-sm-10"><div class="row"><div class="col-sm-9"><h4 class="card-title">@'+arr[i]["username"]+'</h4><h6>' + following + ' Following, ' + followers + ' Followers</div><div class="col-sm-3">' + fbutton + '</div></div></div></div></div></div>');
       /*
       Here's the non-minified version of the template of each user. Unfortunately, JS variables don't support newlines, so we need to condense it before it is appended to the container.
@@ -84,7 +77,6 @@ function buildUsers(username,method){
         </div>
       </div>
       */
-      console.log("Finished!");
     }
   }
 }
