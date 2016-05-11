@@ -29,7 +29,7 @@ function buildUsers(username,method){
   var arr = [];
   console.log(infoData);
   if (method == "single"){
-    arr = infoData;
+    arr[0] = infoData;
     console.log(arr);
   }
   else{
@@ -40,7 +40,6 @@ function buildUsers(username,method){
     $("feed-container").html("This honeycomb is empty. Are you sure you searched for the right bee?")
   }
   else{
-
     if (method == "followers"){
       arr.sort(compareFollowers);
     }
