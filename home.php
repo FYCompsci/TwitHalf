@@ -88,6 +88,9 @@
 						$(this).html(linkUsernames($(this).html()));
 				});
 				$('.card').linkify();
+				var beePuns = JSON.parse(httpGet("buzzwords.json"));
+				var buzzWord = beePuns[Math.floor(Math.random()*beePuns.length)];
+				$('#submitTextarea').attr("placeholder", buzzWord);
 				$('#submitTextarea').keyup(function() {
 	        var text_length = $('#submitTextarea').val().length;
 					var text_left = 256 - text_length;
