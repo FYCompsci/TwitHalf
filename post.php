@@ -55,23 +55,24 @@
     {
         $likers = $row['liked'];
     }
-    $query = "
-      UPDATE posts SET liked=:likers WHERE id=:post
-    ";
-    $query_params = array(
-      ':post' => $_GET['like'],
-      ':likers' => $likers.",".$_SESSION['user']['username']
-    );
-    try
-    {
-        $stmt = $db->prepare($query);
-        $result = $stmt->execute($query_params);
+    if (!(in_array($_SESSION['user'],explode(",",$likers)))){
+      $query = "
+        UPDATE posts SET liked=:likers WHERE id=:post
+      ";
+      $query_params = array(
+        ':post' => $_GET['like'],
+        ':likers' => $likers.",".$_SESSION['user']['username']
+      );
+      try
+      {
+          $stmt = $db->prepare($query);
+          $result = $stmt->execute($query_params);
+      }
+      catch(PDOException $ex)
+      {
+          die("Failed to run query: " . $ex->getMessage());
+      }
     }
-    catch(PDOException $ex)
-    {
-        die("Failed to run query: " . $ex->getMessage());
-    }
-
     header("Location: home.php?alert=like");
     die("Redirecting to home.php?alert=like");
   }
@@ -100,24 +101,26 @@
     {
         $likers = $row['liked'];
     }
-    $comma_string = ",".$_SESSION['user']['username'];
-    $likers = str_replace($comma_string, '', $likers);
-    $likers = str_replace($_SESSION['user']['username'], '', $likers);
-    $query = "
-      UPDATE posts SET liked=:likers WHERE id=:post
-    ";
-    $query_params = array(
-      ':post' => $_GET['unlike'],
-      ':likers' => $likers
-    );
-    try
-    {
-        $stmt = $db->prepare($query);
-        $result = $stmt->execute($query_params);
-    }
-    catch(PDOException $ex)
-    {
-        die("Failed to run query: " . $ex->getMessage());
+    if (in_array($_SESSION['user'],explode(",",$likers))){
+      $comma_string = ",".$_SESSION['user']['username'];
+      $likers = str_replace($comma_string, '', $likers);
+      $likers = str_replace($_SESSION['user']['username'], '', $likers);
+      $query = "
+        UPDATE posts SET liked=:likers WHERE id=:post
+      ";
+      $query_params = array(
+        ':post' => $_GET['unlike'],
+        ':likers' => $likers
+      );
+      try
+      {
+          $stmt = $db->prepare($query);
+          $result = $stmt->execute($query_params);
+      }
+      catch(PDOException $ex)
+      {
+          die("Failed to run query: " . $ex->getMessage());
+      }
     }
 
     header("Location: home.php?alert=unlike");
