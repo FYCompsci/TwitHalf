@@ -55,7 +55,7 @@
     {
         $likers = $row['liked'];
     }
-    if (!(in_array($_SESSION['user'],explode(",",$likers)))){
+    if (!(in_array($_SESSION['user']['username'],explode(",",$likers)))){
       $query = "
         UPDATE posts SET liked=:likers WHERE id=:post
       ";
@@ -101,7 +101,7 @@
     {
         $likers = $row['liked'];
     }
-    if (in_array($_SESSION['user'],explode(",",$likers))){
+    if (in_array($_SESSION['user']['username'],explode(",",$likers))){
       $comma_string = ",".$_SESSION['user']['username'];
       $likers = str_replace($comma_string, '', $likers);
       $likers = str_replace($_SESSION['user']['username'], '', $likers);
