@@ -33,14 +33,14 @@
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
-			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
+			var page_username = "<?php echo $_SESSION['user']['username']; ?>"; // gets username
 			$( document ).ready(function() {
-					buildPosts("all", "all", "likes");
+					buildPosts("all", "all", "likes"); // builds posts sorted on likes
 					$('.card').each(function() {
-							$(this).html(linkHashtags($(this).html()));
-							$(this).html(linkUsernames($(this).html()));
+							$(this).html(linkHashtags($(this).html())); // links hashtags
+							$(this).html(linkUsernames($(this).html())); // links usernames
 					});
-					$('.card').linkify();
+					$('.card').linkify(); // links http links.
 			});
 		</script>
   </body>

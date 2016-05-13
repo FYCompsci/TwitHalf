@@ -1,4 +1,5 @@
 <?php
+// login script, similar to example from earlier.
     require("common.php");
     if(!empty($_POST))
     {

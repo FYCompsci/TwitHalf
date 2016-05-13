@@ -1,4 +1,5 @@
 <?php
+    // very quick logout function
     require("common.php");
     unset($_SESSION['user']);
     header("Location: index.php");

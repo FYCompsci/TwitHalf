@@ -1,4 +1,5 @@
 <?php
+    // quick register function, similar to previous ideas.
     require("common.php");
 
     if(!empty($_POST))
@@ -24,7 +25,7 @@
             WHERE
                 username = :username
         ";
-        $legit_username = preg_replace('/[^a-zA-Z0-9]+/', '', $_POST['username']);
+        $legit_username = preg_replace('/[^a-zA-Z0-9]+/', '', $_POST['username']); // regex to ensure that only alphanumeric is in the username
 
         $query_params = array(
             ':username' => $legit_username

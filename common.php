@@ -1,10 +1,11 @@
 <?php
+    // this is our common php database function, which initiates the database conneciton using PDO, and starts the session
     $username = "root";
     $password = "";
     $host = "localhost";
     $dbname = "thebuzz";
 
-    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
+    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 
     try
     {

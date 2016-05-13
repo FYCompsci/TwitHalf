@@ -57,6 +57,7 @@
 		<script src="js/jquery2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script>
+		// a not that secure way of only allowing alphanumeric in username input
 		$(function(){
 			$("#reg-username").keypress(function(event){
 					var ew = event.which;

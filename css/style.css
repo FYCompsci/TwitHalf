@@ -1,15 +1,20 @@
+/* this is our default style page for The Buzz */
+
 html {
+	/* this just adjusts html to be full width and full height, which is needed for our footer styling */
 	position: relative;
   min-width: 100%;
   min-height: 100%;
 }
 body {
+	/* this just adjusts body to be full width and full height, which is needed for our footer styling. Also adds bottom padding so there's always space for the footer. */
   min-width: 100%;
   min-height: 100%;
 	padding-top: 75px;
   padding-bottom: 60px;
 }
 .footer {
+	/* this is our footer! it's a bit complicated, but we force a full-width orange footer to the bottom of the page */
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -20,9 +25,11 @@ body {
   color:white;
 }
 .full-nav > li > .dropdown-menu {
+	/* this forces a bigger navbar dropdown than bootstrap's default */
   min-width: 300px;
 }
 
 .label > .hashtag{
+	/* quickly makes hashtag links white in hashtag labels */
 	color:white;
 }

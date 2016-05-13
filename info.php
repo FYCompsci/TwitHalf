@@ -1,4 +1,5 @@
 <?php
+  // the info page takes in a user parameter and lists out their information in the 'user' table, such as admin level, following list, follower count, etc. 
   if (isset($_GET['user'])){
     $page_user = $_GET['user'];
   }

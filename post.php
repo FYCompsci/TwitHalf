@@ -1,6 +1,7 @@
 <?php
-
+  // general posts functions, covers creation, deletion, liking, and rebuzzing
   function getHashtags($string) {
+    // this function gets all the hashtags from a string (so in this case, a buzz), using a regex expression
     $hashtags= false;
     preg_match_all("/(#\w+)/u", $string, $matches);
     if ($matches) {
@@ -11,6 +12,7 @@
   }
   require("common.php");
   if (isset($_GET['delete'])){
+    // runs if deleting a post
     $query = "
       DELETE FROM posts WHERE id=:post;
     ";
@@ -31,6 +33,7 @@
     die("Redirecting to home.php?alert=delete");
   }
   else if (isset($_GET['like'])){
+    // runs if we're liking a post
     $query = "
         SELECT * FROM posts WHERE id=:id
     ";
@@ -55,13 +58,13 @@
     {
         $likers = $row['liked'];
     }
-    if (!(in_array($_SESSION['user']['username'],explode(",",$likers)))){
+    if (!(in_array($_SESSION['user']['username'],explode(",",$likers)))){ // only runs if the user hasn't liked the post yet
       $query = "
         UPDATE posts SET liked=:likers WHERE id=:post
       ";
       $query_params = array(
         ':post' => $_GET['like'],
-        ':likers' => $likers.",".$_SESSION['user']['username']
+        ':likers' => $likers.",".$_SESSION['user']['username'] // adds user to list of who has liked the post
       );
       try
       {
@@ -77,6 +80,7 @@
     die("Redirecting to home.php?alert=like");
   }
   else if (isset($_GET['unlike'])){
+    // runs on unlike
     $query = "
         SELECT * FROM posts WHERE id=:id
     ";
@@ -101,7 +105,8 @@
     {
         $likers = $row['liked'];
     }
-    if (in_array($_SESSION['user']['username'],explode(",",$likers))){
+    if (in_array($_SESSION['user']['username'],explode(",",$likers))){ // only runs if user has liked post already
+      // removes user from list of people who have liked the post
       $comma_string = ",".$_SESSION['user']['username'];
       $likers = str_replace($comma_string, '', $likers);
       $likers = str_replace($_SESSION['user']['username'], '', $likers);
@@ -127,6 +132,7 @@
     die("Redirecting to home.php?alert=unlike");
   }
   else if (isset($_GET['retweet'])){
+    // runs on rebuzz
     $current_time = time();
     $query = "
         SELECT * FROM posts WHERE id=:id
@@ -187,15 +193,16 @@
     die("Redirecting to home.php?alert=retweet");
   }
   else if(!empty($_POST)){
+    // runs on post creation
     $retweet = "false";
-    $current_time = time();
+    $current_time = time(); // gets current unix timestamp
     if (getHashtags($_POST['content']) == false){
       $hashtag_final = "none";
     }
     else{
-      $hashtag_final = implode(",", getHashtags($_POST['content']));
+      $hashtag_final = implode(",", getHashtags($_POST['content'])); // gets all hashtags from post
     }
-    $legit_content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
+    $legit_content = filter_var($_POST['content'], FILTER_SANITIZE_STRING); // this is super important! this stops people from using xml injections, so our users are safe and sound
     $query_params = array(
         ':author' => $_SESSION['user']['username'],
         ':content' => $legit_content,

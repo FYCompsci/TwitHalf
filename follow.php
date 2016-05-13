@@ -1,6 +1,8 @@
 <?php
+  // this is the overarching follow function, which contains parameters for following and unfollowing the user
   require("common.php");
   if (isset($_GET['follow'])){
+    // these lines of code only runs if the follow paramter is added to the function
     $query = "
         SELECT * FROM info WHERE username=:username
     ";
@@ -29,7 +31,7 @@
       UPDATE info SET following=:following WHERE username=:username
     ";
     $query_params = array(
-      ':following' => $following.",".$_GET['follow'],
+      ':following' => $following.",".$_GET['follow'], // we do this to add the followed user to the list of people our current user is following
       ':username' => $_SESSION['user']['username']
     );
     try
@@ -64,7 +66,7 @@
 
     if($row)
     {
-        $followers = $row['followers'] + 1;
+        $followers = $row['followers'] + 1; // we do this to add 1 to the amount of followers the followed person has
     }
     $query = "
       UPDATE info SET followers=:followers WHERE username=:username
@@ -87,6 +89,7 @@
     die("Redirecting to user.php?username=".$_GET['follow']."&action=follow");
   }
   else if (isset($_GET['unfollow'])){
+    // this code only runs if the unfollow parameter is added
     $query = "
         SELECT * FROM info WHERE username=:username
     ";
@@ -111,6 +114,7 @@
     {
         $following = $row['following'];
     }
+    // these next three lines of code execute to remove the followed user from the current user's list of users
     $comma_string = ",".$_GET['unfollow'];
     $following = str_replace($comma_string, '', $following);
     $following = str_replace($_GET['unfollow'], '', $following);
@@ -153,7 +157,7 @@
 
     if($row)
     {
-        $followers = $row['followers'] - 1;
+        $followers = $row['followers'] - 1; // we do this to subtract one from the amount of followers the followed person has
     }
     $query = "
       UPDATE info SET followers=:followers WHERE username=:username

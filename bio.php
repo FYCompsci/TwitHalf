@@ -1,4 +1,5 @@
 <?php
+  // this page is the edit bio function, which edits the bio of a user. You can use this function on your own user page
   require("common.php");
   if(!empty($_POST)){
     $legit_content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);

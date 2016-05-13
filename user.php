@@ -5,6 +5,7 @@
 		die("Redirecting to index.php");
 	}
   if (isset($_GET['username'])){
+		// gets username
     $page_username = $_GET['username'];
   }
   else{
@@ -12,6 +13,7 @@
     die("Redirecting to search.php");
   }
 	if (isset($_GET['action'])){
+		// gets page action
     $page_action = $_GET['action'];
   }
 	else{
@@ -89,33 +91,39 @@
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
-      var page_username = "<?php echo $_SESSION['user']['username']; ?>";
+      var page_username = "<?php echo $_SESSION['user']['username']; ?>"; // gets current user's name
 			$( document ).ready(function() {
-					buildPosts("<?php echo $page_username; ?>", "all");
+					buildPosts("<?php echo $page_username; ?>", "all"); // builds all posts by specific user
 					$('.card').each(function() {
-							$(this).html(linkHashtags($(this).html()));
-							$(this).html(linkUsernames($(this).html()));
+							$(this).html(linkHashtags($(this).html())); // links hashtags
+							$(this).html(linkUsernames($(this).html())); // links usernames
 					});
-					$('.card').linkify();
+					$('.card').linkify(); // links http links
 			});
-			var pageuser = "<?php echo $page_username; ?>";
-			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser));
-			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
-			$("#bio-container").html(infoData["bio"]);
-			if (pageuser != page_username){
+			var pageuser = "<?php echo $page_username; ?>"; // gets the name of the user this page is about
+			var infoData = JSON.parse(httpGet("info.php?user=" + pageuser)); // gets that user's data
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username)); // get information about current user
+			$("#bio-container").html(infoData["bio"]); // adds bio to user
+			if (pageuser != page_username){ // if the current user isn't viewing their own page, then we need to add a follow button
 				if ($.inArray(pageuser, userInfoData['following'].split(",")) > -1 ){
+					// if the current user is already following the page user, display following and allow unfollow
 					$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?unfollow="+pageuser+"'><span class='fa fa-check'></span> Following " + pageuser + "</a>");
 				}
 				else{
+					// if the current user isn't following the page user, display follow button
 					$("#action-container").html("<a class='btn btn-block btn-info-outline' href='follow.php?follow="+pageuser+"'><span class='fa fa-plus'></span> Follow " + pageuser + "</a>");
 				}
 			}
 			else{
+				// if the current user is the page user, then allow the current user to edit their own bio
 				$("#action-container").html("<a class='btn btn-block btn-info-outline' href='#' data-toggle='modal' data-target='#bioModal'><span class='fa fa-edit'></span> Edit Bio</a>");
 				$("#submitTextarea").val(infoData["bio"]);
 			}
-			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");
-			$("#page-followers").html("<h6><b>" + infoData['followers'] + "</b> <small>Followers</small></h6>");
+
+			$("#page-following").html("<h6><b>" + infoData['following'].split(",").length + "</b> <small>Following</small></h6>");// gets number of people the page user is following
+			$("#page-followers").html("<h6><b>" + infoData['followers'] + "</b> <small>Followers</small></h6>"); // gets number of people following the page user
+
+			// this next part is just action alerts
 			if("<?php echo $page_action; ?>" == "bio" ){
 				$('#user-alert').addClass("alert-info");
         $('#user-alert').addClass("in");

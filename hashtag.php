@@ -4,8 +4,8 @@
 		header("Location: index.php");
 		die("Redirecting to index.php");
 	}
-  session_start();
   if (isset($_GET['hashtag'])){
+		// here we get the hashtag that our page will be displaying
     $page_hashtag = $_GET['hashtag'];
   }
   else{
@@ -41,14 +41,14 @@
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
-      var page_username = "<?php echo $_SESSION['user']['username']; ?>";
+      var page_username = "<?php echo $_SESSION['user']['username']; ?>"; // here we get the name of the current user
 			$( document ).ready(function() {
-					buildPosts("all", "#<?php echo $page_hashtag; ?>");
+					buildPosts("all", "#<?php echo $page_hashtag; ?>"); // here we build all the posts with the current hashtag
 					$('.card').each(function() {
-							$(this).html(linkHashtags($(this).html()));
-							$(this).html(linkUsernames($(this).html()));
+							$(this).html(linkHashtags($(this).html())); // here we render hashtag links
+							$(this).html(linkUsernames($(this).html())); // here we render username links
 					});
-					$('.card').linkify();
+					$('.card').linkify(); // here we render http links
 			});
 		</script>
   </body>

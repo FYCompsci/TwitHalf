@@ -5,6 +5,7 @@
 		die("Redirecting to index.php");
 	}
   if (isset($_GET['searchType'])){
+		// gets search type
     $page_searchType = $_GET['searchType'];
   }
   else{
@@ -66,23 +67,26 @@
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
-      var page_username = "<?php echo $_SESSION['user']['username']; ?>";
-			var searchType = "<?php echo $page_searchType; ?>";
-			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
-			$("#searchType-" + searchType).addClass("active");
+      var page_username = "<?php echo $_SESSION['user']['username']; ?>"; // gets current user's username
+			var searchType = "<?php echo $page_searchType; ?>"; // gets pages search type
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username)); // gets data about the current user
+			$("#searchType-" + searchType).addClass("active"); // renders active component on the correct navbar thing
 			function search(){
-				$('#feed-container').html("");
-				var query = $('#searchBar').val();
+				$('#feed-container').html(""); // resets feed container
+				var query = $('#searchBar').val(); // gets what was put in the search bar
 				if (searchType == "user" || searchType == "users"){
+					// correctly formats usernames
 					if (query.charAt(0) == "@"){
 						query = query.substring(1);
 					}
 				}
 				else if (searchType == "hashtag"){
+					// correctly formats hashtags
 					if (query.charAt(0) != "#"){
 						query = "#" + query;
 					}
 				}
+				// this next part just builds the cards
 				if (searchType == "users"){
 					buildUsers(query);
 				}
@@ -93,10 +97,10 @@
 					buildPosts("all", query);
 				}
 				$('.card').each(function() {
-					$(this).html(linkHashtags($(this).html()));
-					$(this).html(linkUsernames($(this).html()));
+					$(this).html(linkHashtags($(this).html())); // links hashtags
+					$(this).html(linkUsernames($(this).html())); // links usernames
 				});
-				$('.card').linkify();
+				$('.card').linkify(); // links 
 			}
 		</script>
   </body>

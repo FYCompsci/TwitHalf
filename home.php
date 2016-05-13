@@ -5,6 +5,7 @@
 		die("Redirecting to index.php");
 	}
 	if (isset($_GET['alert'])){
+		// we get what action directed users to this page, which triggers what kind of alert that we use
     $action = $_GET['alert'];
   }
   else{
@@ -47,7 +48,6 @@
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
 										</br>
 										<div id="textarea-count">256</div>
-                    <!--<button class="btn btn-block btn-danger" type="button" onclick="clearTextBox('#submitTextarea')">Clear</button>-->
                   </div>
                 </div>
               </div>
@@ -80,24 +80,26 @@
 		<script src="js/linkify.min.js"></script>
 		<script src="js/linkify-jquery.min.js"></script>
 		<script>
-			var page_username = "<?php echo $_SESSION['user']['username']; ?>";
+			var page_username = "<?php echo $_SESSION['user']['username']; ?>"; // we get the current user's name
 			$( document ).ready(function() {
-				buildPosts("all", "all","time", 1);
+				buildPosts("all", "all","time", 1); // build posts
 				$('.card').each(function() {
-						$(this).html(linkHashtags($(this).html()));
-						$(this).html(linkUsernames($(this).html()));
+						$(this).html(linkHashtags($(this).html())); // link hashtags
+						$(this).html(linkUsernames($(this).html())); // link usernames
 				});
-				$('.card').linkify();
-				var beePuns = JSON.parse(httpGet("buzzwords.json"));
-				var buzzWord = beePuns[Math.floor(Math.random()*beePuns.length)];
-				$('#submitTextarea').attr("placeholder", buzzWord);
+				$('.card').linkify(); // link http links
+				var beePuns = JSON.parse(httpGet("buzzwords.json")); // gets the bee puns
+				var buzzWord = beePuns[Math.floor(Math.random()*beePuns.length)]; // gets a random bee pun out of our list of bee puns
+				$('#submitTextarea').attr("placeholder", buzzWord); // adds bee pun to the text area placeholder (so the little help text)
 				$('#submitTextarea').keyup(function() {
+					// this function deals with the text limit
 	        var text_length = $('#submitTextarea').val().length;
 					var text_left = 256 - text_length;
 	        $('#textarea-count').html(text_left);
 	    	});
 			});
-			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username));
+			var userInfoData = JSON.parse(httpGet("info.php?user=" + page_username)); // here we get user data, including their following list, follower list, etc.
+			// this next blurb just gives you the action alert, which would depend on what page sent you to home
 			if ("<?php echo $action; ?>" == "delete"){
         $('#home-alert').addClass("alert-info");
         $('#home-alert').addClass("in");
@@ -125,11 +127,6 @@
 	        $('#home-alert-content').html("<strong>Welcome back!</strong> Here's a honeycomb of the latest buzzes.");
 				}
       }
-			/*
-			function clearTextBox(container){
-				$(container).attr("value", "");
-			}
-			*/
 		</script>
   </body>
 </html>

@@ -4,6 +4,7 @@
 		header("Location: home.php");
 		die("Redirecting to home.php");
 	}
+	// gets action
   if (isset($_GET['register'])){
     $action = "registered";
   }
@@ -53,6 +54,7 @@
     <script src="js/jquery2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
+		// quick alert setter depending on what sent us here
       if ("<?php echo $action; ?>" == "registered"){
         $('#reg-alert').addClass("alert-info");
         $('#reg-alert').addClass("in");
