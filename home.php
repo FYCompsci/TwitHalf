@@ -41,7 +41,7 @@
               <div class="card-block">
                 <div class="row">
                   <div class="col-sm-9">
-                    <textarea class="form-control" id="submitTextarea" name="content" rows="3" required="" placeholder="Give us your two cents!" maxlength="256"></textarea>
+                    <textarea class="form-control" id="submitTextarea" name="content" rows="3" required="" placeholder="" maxlength="256"></textarea>
                   </div>
                   <div class="col-sm-3">
                     <input class="btn btn-block btn-primary" type="submit" value="Buzz" />
