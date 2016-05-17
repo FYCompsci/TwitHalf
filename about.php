@@ -62,12 +62,14 @@
 						</br>
 						<p>If you want to search for a specific buzzer, or a specific hashtag, simply click search on the discover
 							dropdown menu! You will be directed to a new page where it is easy to find what you're looking for!</p>
-				</br>
-				</div>
-				</div>
+						</br>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
     <?php include_once ('footer.php'); ?>
 		<script src="js/jquery2.min.js"></script>
