@@ -10,33 +10,14 @@ Copy-paste this code in your SQL Console Line:
 
 ```sql
 
--- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: May 13, 2016 at 02:30 PM
--- Server version: 5.5.49-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `thebuzz`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `info`
---
 
 CREATE TABLE IF NOT EXISTS `info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -49,13 +30,6 @@ CREATE TABLE IF NOT EXISTS `info` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `posts`
---
-
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) NOT NULL,
@@ -66,13 +40,6 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `liked` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
